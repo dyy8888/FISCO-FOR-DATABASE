@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgroup_sig.a  CMakeFiles/group_sig.dir/algorithm/bbs04/GroupSig_BBS.cpp.o CMakeFiles/group_sig.dir/algorithm/bbs04/GroupSig_BBS_Impl.cpp.o CMakeFiles/group_sig.dir/algorithm/ring-sig/LinkableRingSig_Impl.cpp.o CMakeFiles/group_sig.dir/algorithm/GroupSig.cpp.o CMakeFiles/group_sig.dir/algorithm/KeyLoaderDumper.cpp.o CMakeFiles/group_sig.dir/algorithm/RingSig.cpp.o CMakeFiles/group_sig.dir/devcore/Base64.cpp.o CMakeFiles/group_sig.dir/devcore/SHA3.cpp.o
+/usr/bin/ranlib libgroup_sig.a

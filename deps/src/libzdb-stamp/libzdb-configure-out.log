@@ -1,0 +1,4 @@
+Making clean in .
+rm -f ./so_locations
+Making clean in test
+ rm -f unit pool select exception zdbpp

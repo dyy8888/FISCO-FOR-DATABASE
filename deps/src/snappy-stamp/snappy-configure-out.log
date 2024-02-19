@@ -1,0 +1,57 @@
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Looking for byteswap.h
+-- Looking for byteswap.h - found
+-- Looking for sys/endian.h
+-- Looking for sys/endian.h - not found
+-- Looking for sys/mman.h
+-- Looking for sys/mman.h - found
+-- Looking for sys/resource.h
+-- Looking for sys/resource.h - found
+-- Looking for sys/time.h
+-- Looking for sys/time.h - found
+-- Looking for sys/uio.h
+-- Looking for sys/uio.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for windows.h
+-- Looking for windows.h - not found
+-- Looking for zlibVersion in z
+-- Looking for zlibVersion in z - found
+-- Looking for lzo1x_1_15_compress in lzo2
+-- Looking for lzo1x_1_15_compress in lzo2 - not found
+-- Performing Test HAVE_BUILTIN_EXPECT
+-- Performing Test HAVE_BUILTIN_EXPECT - Success
+-- Performing Test HAVE_BUILTIN_CTZ
+-- Performing Test HAVE_BUILTIN_CTZ - Success
+-- Looking for mmap
+-- Looking for mmap - found
+-- Looking for sysconf
+-- Looking for sysconf - found
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/snappy

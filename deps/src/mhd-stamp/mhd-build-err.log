@@ -1,0 +1,14 @@
+make[3]: 警告: jobserver 不可用: 正使用 -j1。添加 “+” 到父 make 的规则。
+In file included from /usr/include/string.h:495,
+                 from ../../src/include/platform.h:42,
+                 from digestauth.c:26:
+In function ‘strncpy’,
+    inlined from ‘lookup_sub_value.part.0’ at digestauth.c:481:8:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:106:10: warning: ‘__builtin_strncpy’ specified bound depends on the length of the source argument [-Wstringop-overflow=]
+  106 |   return __builtin___strncpy_chk (__dest, __src, __len, __bos (__dest));
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+digestauth.c: In function ‘lookup_sub_value.part.0’:
+digestauth.c:477:14: note: length computed here
+  477 |        len = strlen (q1) + 1;
+      |              ^~~~~~~~~~~
+ar: `u' modifier ignored since `D' is the default (see `U')

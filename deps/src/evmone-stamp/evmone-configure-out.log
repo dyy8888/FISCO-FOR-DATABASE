@@ -1,0 +1,78 @@
+-- [cable ] Cable 0.4.1 initialized
+-- [cable ] Build type: Release
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] HUNTER_ROOT set using HOME environment variable
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] HUNTER_ROOT: /home/dyy/.hunter
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] Settings (initialize):
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43]   HunterGate done (NO)
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43]   Cache init (NO)
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] Single-configuration generator
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] Using default cache server
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] List of cache servers:
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43]   * https://github.com/cpp-pm/hunter-cache
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] Settings (finalize):
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43]   HunterGate done (NO)
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43]   Cache init (NO)
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] Variables from HunterGate:
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43]   HUNTER_GATE_ROOT: /home/dyy/.hunter
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43]   HUNTER_GATE_VERSION: unknown
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43]   HUNTER_GATE_SHA1: 9bfa9577907f31a2e064a986c423651dd29e2a45
+-- [hunter] Calculating Toolchain-SHA1
+-- [hunter *** DEBUG *** 2023-11-29T15:16:43] [/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/evmone/_3rdParty/Hunter/toolchain] > "/usr/bin/cmake" "-DTOOLCHAIN_INFO_FILE=/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/evmone/_3rdParty/Hunter/toolchain/toolchain.info.NOLF" "-DCMAKE_TOOLCHAIN_FILE=/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/evmone/cmake/cable/toolchains/cxx17-pic.cmake" "-DHUNTER_SELF=/home/dyy/.hunter/_Base/Download/Hunter/unknown/9bfa957/Unpacked" "-GUnix Makefiles" "-H/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/evmone/_3rdParty/Hunter/toolchain" "-B/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/evmone/_3rdParty/Hunter/toolchain/_builds" "-DCMAKE_MAKE_PROGRAM=/usr/bin/make" "-DCMAKE_RELEASE_POSTFIX="
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/evmone/_3rdParty/Hunter/toolchain/_builds
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] Already exists: /home/dyy/.hunter/_Base/9bfa957/84437e3/toolchain.info
+-- [hunter] Calculating Config-SHA1
+-- [hunter] HUNTER_ROOT: /home/dyy/.hunter
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] HUNTER_TOOLCHAIN_ID_PATH: /home/dyy/.hunter/_Base/9bfa957/84437e3
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] HUNTER_CONFIGURATION_TYPES: Release
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] HUNTER_BUILD_SHARED_LIBS: 
+-- [hunter] [ Hunter-ID: 9bfa957 | Toolchain-ID: 84437e3 | Config-ID: f25ad4f ]
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] load: /home/dyy/.hunter/_Base/Download/Hunter/unknown/9bfa957/Unpacked/cmake/projects/ethash/hunter.cmake
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] ethash versions available: [0.1.0;0.2.0;0.3.0;0.4.3;0.4.4;0.5.0]
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] Package 'ethash' CONFIGURATION_TYPES: Release
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] Package 'ethash' is cacheable: YES
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] Install to: /home/dyy/.hunter/_Base/9bfa957/84437e3/f25ad4f/Install
+-- [hunter] ETHASH_ROOT: /home/dyy/.hunter/_Base/9bfa957/84437e3/f25ad4f/Install (ver.: 0.5.0)
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] Package already installed: ethash
+-- [hunter *** DEBUG *** 2023-11-29T15:16:44] load: /home/dyy/.hunter/_Base/Download/Hunter/unknown/9bfa957/Unpacked/cmake/projects/ethash/hunter.cmake ... end
+-- Performing Test fstack-protector
+-- Performing Test fstack-protector - Success
+-- Performing Test fstack-protector-strong
+-- Performing Test fstack-protector-strong - Success
+-- Performing Test Wimplicit-fallthrough
+-- Performing Test Wimplicit-fallthrough - Success
+-- Performing Test mtune=generic
+-- Performing Test mtune=generic - Success
+-- [hunter *** DEBUG *** 2023-11-29T15:16:45] load: /home/dyy/.hunter/_Base/Download/Hunter/unknown/9bfa957/Unpacked/cmake/projects/intx/hunter.cmake
+-- [hunter *** DEBUG *** 2023-11-29T15:16:45] intx versions available: [0.1.0;0.2.0;0.3.0;0.4.0;0.5.0]
+-- [hunter *** DEBUG *** 2023-11-29T15:16:45] Package 'intx' CONFIGURATION_TYPES: Release
+-- [hunter *** DEBUG *** 2023-11-29T15:16:45] Package 'intx' is cacheable: YES
+-- [hunter *** DEBUG *** 2023-11-29T15:16:45] Install to: /home/dyy/.hunter/_Base/9bfa957/84437e3/f25ad4f/Install
+-- [hunter] INTX_ROOT: /home/dyy/.hunter/_Base/9bfa957/84437e3/f25ad4f/Install (ver.: 0.5.0)
+-- [hunter *** DEBUG *** 2023-11-29T15:16:45] Package already installed: intx
+-- [hunter *** DEBUG *** 2023-11-29T15:16:45] load: /home/dyy/.hunter/_Base/Download/Hunter/unknown/9bfa957/Unpacked/cmake/projects/intx/hunter.cmake ... end
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/evmone

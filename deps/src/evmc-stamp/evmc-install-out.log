@@ -1,0 +1,19 @@
+[ 60%] Built target instructions
+[100%] Built target loader
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmc
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmc/utils.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmc/evmc.hpp
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmc/instructions.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmc/mocked_host.hpp
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmc/helpers.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmc/evmc.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmc/loader.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/evmc/evmcTargets.cmake
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/evmc/evmcTargets-release.cmake
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/evmc/evmcConfig.cmake
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/evmc/evmcConfigVersion.cmake
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/evmc/EVMC.cmake
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libevmc-instructions.a
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libevmc-loader.a

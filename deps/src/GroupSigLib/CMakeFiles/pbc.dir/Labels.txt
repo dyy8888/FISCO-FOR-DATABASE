@@ -1,0 +1,13 @@
+# Target labels
+ pbc
+# Source files and their labels
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/CMakeFiles/pbc
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/CMakeFiles/pbc.rule
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/CMakeFiles/pbc-complete.rule
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-install.rule
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-mkdir.rule
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-download.rule
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-update.rule
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-patch.rule
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-configure.rule
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-build.rule

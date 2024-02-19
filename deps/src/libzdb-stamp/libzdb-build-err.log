@@ -1,0 +1,204 @@
+make[3]: 警告: jobserver 不可用: 正使用 -j1。添加 “+” 到父 make 的规则。
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleConnection.c:34:
+/home/dyy/dmoci/include/DCI.h:1445:1: warning: multi-line comment [-Wcomment]
+ 1445 | // #define OCIDateGetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1451:1: warning: multi-line comment [-Wcomment]
+ 1451 | // #define DCIDateGetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1472:1: warning: multi-line comment [-Wcomment]
+ 1472 | // #define OCIDateGetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1478:1: warning: multi-line comment [-Wcomment]
+ 1478 | // #define DCIDateGetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1498:1: warning: multi-line comment [-Wcomment]
+ 1498 | // #define OCIDateSetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1504:1: warning: multi-line comment [-Wcomment]
+ 1504 | // #define DCIDateSetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1524:1: warning: multi-line comment [-Wcomment]
+ 1524 | // #define OCIDateSetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1530:1: warning: multi-line comment [-Wcomment]
+ 1530 | // #define DCIDateSetDate(date, year, month, day) \
+      | ^
+src/db/oracle/OracleConnection.c: In function '_execute':
+src/db/oracle/OracleConnection.c:359:54: warning: passing argument 3 of 'OCIStmtPrepare' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  359 |         C->lastError = OCIStmtPrepare(stmtp, C->err, StringBuffer_toString(C->sb), StringBuffer_length(C->sb), OCI_NTV_SYNTAX, OCI_DEFAULT);
+      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleConnection.c:34:
+/home/dyy/dmoci/include/DCI.h:1730:29: note: expected 'DmText *' {aka 'unsigned char *'} but argument is of type 'const char *'
+ 1730 |     DmText*                 stmt,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+src/db/oracle/OracleConnection.c: In function '_executeQuery':
+src/db/oracle/OracleConnection.c:400:54: warning: passing argument 3 of 'OCIStmtPrepare' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  400 |         C->lastError = OCIStmtPrepare(stmtp, C->err, StringBuffer_toString(C->sb), StringBuffer_length(C->sb), OCI_NTV_SYNTAX, OCI_DEFAULT);
+      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleConnection.c:34:
+/home/dyy/dmoci/include/DCI.h:1730:29: note: expected 'DmText *' {aka 'unsigned char *'} but argument is of type 'const char *'
+ 1730 |     DmText*                 stmt,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+src/db/oracle/OracleConnection.c: In function '_prepareStatement':
+src/db/oracle/OracleConnection.c:435:14: warning: type defaults to 'int' in declaration of 'res' [-Wimplicit-int]
+  435 |         auto res=StringBuffer_toString(C->sb);
+      |              ^~~
+src/db/oracle/OracleConnection.c:435:18: warning: initialization of 'int' from 'const char *' makes integer from pointer without a cast [-Wint-conversion]
+  435 |         auto res=StringBuffer_toString(C->sb);
+      |                  ^~~~~~~~~~~~~~~~~~~~~
+src/db/oracle/OracleConnection.c:440:54: warning: passing argument 3 of 'OCIStmtPrepare' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  440 |         C->lastError = OCIStmtPrepare(stmtp, C->err, StringBuffer_toString(C->sb), StringBuffer_length(C->sb), OCI_NTV_SYNTAX, OCI_DEFAULT);
+      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleConnection.c:34:
+/home/dyy/dmoci/include/DCI.h:1730:29: note: expected 'DmText *' {aka 'unsigned char *'} but argument is of type 'const char *'
+ 1730 |     DmText*                 stmt,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+src/db/oracle/OracleConnection.c:435:14: warning: unused variable 'res' [-Wunused-variable]
+  435 |         auto res=StringBuffer_toString(C->sb);
+      |              ^~~
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleResultSet.c:32:
+/home/dyy/dmoci/include/DCI.h:1445:1: warning: multi-line comment [-Wcomment]
+ 1445 | // #define OCIDateGetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1451:1: warning: multi-line comment [-Wcomment]
+ 1451 | // #define DCIDateGetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1472:1: warning: multi-line comment [-Wcomment]
+ 1472 | // #define OCIDateGetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1478:1: warning: multi-line comment [-Wcomment]
+ 1478 | // #define DCIDateGetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1498:1: warning: multi-line comment [-Wcomment]
+ 1498 | // #define OCIDateSetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1504:1: warning: multi-line comment [-Wcomment]
+ 1504 | // #define DCIDateSetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1524:1: warning: multi-line comment [-Wcomment]
+ 1524 | // #define OCIDateSetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1530:1: warning: multi-line comment [-Wcomment]
+ 1530 | // #define DCIDateSetDate(date, year, month, day) \
+      | ^
+src/db/oracle/OracleResultSet.c: In function '_initaleDefiningBuffers':
+src/db/oracle/OracleResultSet.c:86:15: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+   86 |         sword status;
+      |               ^~~~~~
+src/db/oracle/OracleResultSet.c: In function '_toString':
+src/db/oracle/OracleResultSet.c:186:73: warning: passing argument 10 of 'OCIDateTimeToText' from incompatible pointer type [-Wincompatible-pointer-types]
+  186 |                                          (ub4*)&(R->columns[i].length), (dutext *)R->columns[i].buffer);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                         |
+      |                                                                         dutext * {aka short unsigned int *}
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleResultSet.c:32:
+/home/dyy/dmoci/include/DCI.h:3084:29: note: expected 'DmText *' {aka 'unsigned char *'} but argument is of type 'dutext *' {aka 'short unsigned int *'}
+ 3084 |     DmText*                 buf
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~^~~
+src/db/oracle/OracleResultSet.c: In function '_getBlob':
+src/db/oracle/OracleResultSet.c:366:115: warning: passing argument 12 of 'OCILobRead2' makes integer from pointer without a cast [-Wint-conversion]
+  366 |                                            R->columns[i].buffer + total_bytes, LOB_CHUNK_SIZE, piece, NULL, NULL, NULL, NULL);
+      |                                                                                                                   ^~~~
+      |                                                                                                                   |
+      |                                                                                                                   void *
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleResultSet.c:32:
+/home/dyy/dmoci/include/DCI.h:2200:29: note: expected 'dub2' {aka 'short unsigned int'} but argument is of type 'void *'
+ 2200 |     dub2                    csid,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+src/db/oracle/OracleResultSet.c:366:121: warning: passing argument 13 of 'OCILobRead2' makes integer from pointer without a cast [-Wint-conversion]
+  366 |                                            R->columns[i].buffer + total_bytes, LOB_CHUNK_SIZE, piece, NULL, NULL, NULL, NULL);
+      |                                                                                                                         ^~~~
+      |                                                                                                                         |
+      |                                                                                                                         void *
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleResultSet.c:32:
+/home/dyy/dmoci/include/DCI.h:2201:29: note: expected 'dub1' {aka 'unsigned char'} but argument is of type 'void *'
+ 2201 |     dub1                    csfrm
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+src/db/oracle/OracleResultSet.c:371:46: warning: operation on '(R->columns + (sizetype)((long unsigned int)i * 56))->buffer' may be undefined [-Wsequence-point]
+  371 |                         R->columns[i].buffer = RESIZE(R->columns[i].buffer, (long)(total_bytes + LOB_CHUNK_SIZE));
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OraclePreparedStatement.c:35:
+/home/dyy/dmoci/include/DCI.h:1445:1: warning: multi-line comment [-Wcomment]
+ 1445 | // #define OCIDateGetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1451:1: warning: multi-line comment [-Wcomment]
+ 1451 | // #define DCIDateGetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1472:1: warning: multi-line comment [-Wcomment]
+ 1472 | // #define OCIDateGetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1478:1: warning: multi-line comment [-Wcomment]
+ 1478 | // #define DCIDateGetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1498:1: warning: multi-line comment [-Wcomment]
+ 1498 | // #define OCIDateSetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1504:1: warning: multi-line comment [-Wcomment]
+ 1504 | // #define DCIDateSetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1524:1: warning: multi-line comment [-Wcomment]
+ 1524 | // #define OCIDateSetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1530:1: warning: multi-line comment [-Wcomment]
+ 1530 | // #define DCIDateSetDate(date, year, month, day) \
+      | ^
+src/db/oracle/OraclePreparedStatement.c: In function '_setBlob':
+src/db/oracle/OraclePreparedStatement.c:262:92: warning: passing argument 11 of 'OCIBindByPos' makes integer from pointer without a cast [-Wint-conversion]
+  262 |                                     (int)P->params[i].length, SQLT_CLOB, NULL, NULL, NULL, NULL, NULL, OCI_DEFAULT);
+      |                                                                                            ^~~~
+      |                                                                                            |
+      |                                                                                            void *
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OraclePreparedStatement.c:35:
+/home/dyy/dmoci/include/DCI.h:1847:29: note: expected 'dub4' {aka 'unsigned int'} but argument is of type 'void *'
+ 1847 |     dub4                    maxarr_len,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+In file included from src/db/oracle/OracleAdapter.h:28,
+                 from src/db/oracle/OracleAdapter.c:31:
+/home/dyy/dmoci/include/DCI.h:1445:1: warning: multi-line comment [-Wcomment]
+ 1445 | // #define OCIDateGetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1451:1: warning: multi-line comment [-Wcomment]
+ 1451 | // #define DCIDateGetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1472:1: warning: multi-line comment [-Wcomment]
+ 1472 | // #define OCIDateGetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1478:1: warning: multi-line comment [-Wcomment]
+ 1478 | // #define DCIDateGetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1498:1: warning: multi-line comment [-Wcomment]
+ 1498 | // #define OCIDateSetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1504:1: warning: multi-line comment [-Wcomment]
+ 1504 | // #define DCIDateSetTime(date, hour, min, sec) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1524:1: warning: multi-line comment [-Wcomment]
+ 1524 | // #define OCIDateSetDate(date, year, month, day) \
+      | ^
+/home/dyy/dmoci/include/DCI.h:1530:1: warning: multi-line comment [-Wcomment]
+ 1530 | // #define DCIDateSetDate(date, year, month, day) \
+      | ^
+pool.c: In function ‘main’:
+pool.c:745:22: warning: type defaults to ‘int’ in declaration of ‘str’ [-Wimplicit-int]
+  745 |                 auto str=URL_toString(url);
+      |                      ^~~
+pool.c:745:26: warning: initialization of ‘int’ from ‘const char *’ makes integer from pointer without a cast [-Wint-conversion]
+  745 |                 auto str=URL_toString(url);
+      |                          ^~~~~~~~~~~~
+pool.c:746:26: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+  746 |                 printf("%s\n",str);
+      |                         ~^    ~~~
+      |                          |    |
+      |                          |    int
+      |                          char *
+      |                         %d

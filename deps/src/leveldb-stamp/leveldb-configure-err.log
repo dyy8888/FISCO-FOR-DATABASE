@@ -1,0 +1,16 @@
+CMake Warning (dev) at /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/leveldb-stamp/leveldb-configure-RelWithDebInfo-impl.cmake:21 (set):
+  Syntax error in cmake code at
+
+    /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/leveldb-stamp/leveldb-configure-RelWithDebInfo-impl.cmake:21
+
+  when parsing string
+
+    sed;-i;228s#int main() {}#int main() { __builtin_ia32_crc32qi(0, 0)' \' }#g;build_detect_platform
+
+  Invalid escape sequence \'
+
+  Policy CMP0010 is not set: Bad variable reference syntax is an error.  Run
+  "cmake --help-policy CMP0010" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+

@@ -1,0 +1,7 @@
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsoncpp/src/lib_json/json_reader.cpp: In member function ‘bool Json::OurReader::readToken(Json::OurReader::Token&)’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsoncpp/src/lib_json/json_reader.cpp:1230:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1230 |     if (features_.allowSingleQuotes_) {
+      |     ^~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsoncpp/src/lib_json/json_reader.cpp:1235:3: note: here
+ 1235 |   case '/':
+      |   ^~~~

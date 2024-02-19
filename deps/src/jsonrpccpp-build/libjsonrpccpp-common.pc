@@ -1,0 +1,5 @@
+Name: libjsonrpccpp-common
+Description: Common libraries for libjson-rpc-cpp
+Version: 0.7.0
+Libs: -L/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/ -ljsoncpp
+Cflags: -I/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include

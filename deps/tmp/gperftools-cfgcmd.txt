@@ -1,0 +1,1 @@
+cmd='./configure;CXXFLAGS=-DHAVE_POSIX_MEMALIGN_SYMBOL=1;--enable-frame-pointers;--disable-shared;--disable-cpu-profiler;--disable-heap-profiler;--disable-heap-checker;--disable-debugalloc;--enable-minimal;--prefix=/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/gperftools'

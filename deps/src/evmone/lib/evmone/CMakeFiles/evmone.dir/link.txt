@@ -1,0 +1,2 @@
+/usr/bin/ar qc libevmone.a  CMakeFiles/evmone.dir/analysis.cpp.o CMakeFiles/evmone.dir/evmone.cpp.o CMakeFiles/evmone.dir/execution.cpp.o CMakeFiles/evmone.dir/instructions.cpp.o
+/usr/bin/ranlib libevmone.a

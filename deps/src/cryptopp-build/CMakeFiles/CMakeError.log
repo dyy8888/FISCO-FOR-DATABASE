@@ -1,0 +1,64 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3d942/fast && make[3]: 进入目录“/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_3d942.dir/build.make CMakeFiles/cmTC_3d942.dir/build
+make[4]: 进入目录“/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3d942.dir/src.c.o
+/usr/bin/cc   -march=x86-64 -mtune=generic -fvisibility=hidden -fvisibility-inlines-hidden -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -o CMakeFiles/cmTC_3d942.dir/src.c.o   -c /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp/src.c
+cc1: warning: command line option ‘-fvisibility-inlines-hidden’ is valid for C++/ObjC++ but not for C
+Linking C executable cmTC_3d942
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d942.dir/link.txt --verbose=1
+/usr/bin/cc -march=x86-64 -mtune=generic -fvisibility=hidden -fvisibility-inlines-hidden -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_3d942.dir/src.c.o  -o cmTC_3d942 
+/usr/bin/ld: CMakeFiles/cmTC_3d942.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[4]: *** [CMakeFiles/cmTC_3d942.dir/build.make:87：cmTC_3d942] 错误 1
+make[4]: 离开目录“/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp”
+make[3]: *** [Makefile:121：cmTC_3d942/fast] 错误 2
+make[3]: 离开目录“/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp”
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_74925/fast && make[3]: 进入目录“/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_74925.dir/build.make CMakeFiles/cmTC_74925.dir/build
+make[4]: 进入目录“/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_74925.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -march=x86-64 -mtune=generic -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -o CMakeFiles/cmTC_74925.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+cc1: warning: command line option ‘-fvisibility-inlines-hidden’ is valid for C++/ObjC++ but not for C
+Linking C executable cmTC_74925
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74925.dir/link.txt --verbose=1
+/usr/bin/cc -march=x86-64 -mtune=generic -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_74925.dir/CheckFunctionExists.c.o  -o cmTC_74925  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[4]: *** [CMakeFiles/cmTC_74925.dir/build.make:87：cmTC_74925] 错误 1
+make[4]: 离开目录“/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp”
+make[3]: *** [Makefile:121：cmTC_74925/fast] 错误 2
+make[3]: 离开目录“/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/cryptopp-build/CMakeFiles/CMakeTmp”
+
+
+

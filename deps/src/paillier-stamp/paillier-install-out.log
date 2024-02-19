@@ -1,0 +1,11 @@
+[ 71%] Built target paillier
+[100%] Built target testAdd
+Install the project...
+-- Install configuration: ""
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libpaillier.a
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/paillier/bn.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/paillier/callpaillier.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/paillier/common.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/paillier/macro.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/paillier/paillier.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/paillier/typedef.h

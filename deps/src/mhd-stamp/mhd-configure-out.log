@@ -1,0 +1,304 @@
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether z/OS special settings are required... no
+checking for gawk... (cached) gawk
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for gcc option to accept ISO C99... none needed
+checking for gcc option to accept ISO Standard C... (cached) none needed
+checking how to run the C preprocessor... gcc -E
+checking for presence of stdio.h... yes
+checking for presence of wchar.h... yes
+checking for presence of stdlib.h... yes
+checking for presence of string.h... yes
+checking for presence of strings.h... yes
+checking for presence of stdint.h... yes
+checking for presence of fcntl.h... yes
+checking for presence of sys/types.h... yes
+checking for presence of time.h... yes
+checking for presence of unistd.h... yes
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for fgrep... /usr/bin/grep -F
+checking whether _GNU_SOURCE is already defined... no
+checking whether headers accept _GNU_SOURCE... yes
+checking whether to try __BSD_VISIBLE macro... no
+checking whether to try _DARWIN_C_SOURCE macro... no
+checking whether to try __EXTENSIONS__ macro... no
+checking whether to try _NETBSD_SOURCE macro... no
+checking whether to try _BSD_SOURCE macro... no
+checking whether to try _TANDEM_SOURCE macro... no
+checking whether to try _ALL_SOURCE macro... no
+checking whether _XOPEN_SOURCE is already defined... no
+checking headers for POSIX.1-2008/SUSv4 features... available, works with _XOPEN_SOURCE=700, works with extension macro
+checking for useful system-specific features... no
+checking for final set of defined symbols... _GNU_SOURCE _XOPEN_SOURCE=700
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for egrep... /usr/bin/grep -E
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for windres... no
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for ld used by gcc... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for stdbool.h... yes
+checking for bool... yes
+checking whether "true" is defined or builtin... yes
+checking whether "false" is defined or builtin... yes
+checking whether "true" and "false" could be used... yes
+checking whether C compiler accepts -Werror=attributes... yes
+checking whether -Werror=attributes actually works... yes
+checking for function inline keywords suppoted by gcc... inline __attribute__((always_inline))
+checking for target host OS... Linux
+checking whether gcc is Clang... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for threading lib to use with libmicrohttpd (auto)... posix
+checking for pthread_np.h... no
+checking whether pthread_attr_setname_np is declared... no
+checking whether pthread_setname_np is declared... yes
+checking for pthread_setname_np(3) in NetBSD or OSF1 form... no
+checking for pthread_setname_np(3) in GNU/Linux form... yes
+checking whether to enable thread names... yes
+checking for sys/time.h... yes
+checking for gettimeofday... yes
+checking for time.h... yes
+checking for nanosleep... yes
+checking for unistd.h... (cached) yes
+checking for usleep... yes
+checking for string.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/socket.h... yes
+checking for netinet/in.h... yes
+checking for time.h... (cached) yes
+checking for sys/select.h... yes
+checking for netinet/tcp.h... yes
+checking whether shutdown of listen socket trigger select()... yes
+checking whether the linker accepts -fno-strict-aliasing... yes
+checking whether C compiler accepts -fno-strict-aliasing... yes
+checking whether byte ordering is bigendian... no
+checking for variable-length arrays... yes
+checking for curl... yes
+checking for makeinfo... yes
+checking for poll.h... yes
+checking for poll... yes
+checking linux/version.h usability... yes
+checking linux/version.h presence... yes
+checking for linux/version.h... yes
+checking for Linux epoll(7) interface... yes
+checking for epoll_create1()... yes
+checking for fcntl.h... yes
+checking for math.h... yes
+checking for errno.h... yes
+checking for limits.h... yes
+checking for stdio.h... yes
+checking for locale.h... yes
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/time.h... (cached) yes
+checking for sys/msg.h... yes
+checking for time.h... (cached) yes
+checking for sys/mman.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/socket.h... (cached) yes
+checking for sys/select.h... (cached) yes
+checking for netdb.h... yes
+checking for netinet/in.h... (cached) yes
+checking for netinet/ip.h... yes
+checking for netinet/tcp.h... (cached) yes
+checking for arpa/inet.h... yes
+checking for endian.h... yes
+checking for machine/endian.h... no
+checking for sys/endian.h... no
+checking for sys/param.h... yes
+checking for sys/machine.h... no
+checking for sys/byteorder.h... no
+checking for machine/param.h... no
+checking for sys/isa_defs.h... no
+checking for inttypes.h... (cached) yes
+checking for stddef.h... yes
+checking for unistd.h... (cached) yes
+checking for sockLib.h... no
+checking for inetLib.h... no
+checking for net/if.h... yes
+checking for search.h... yes
+checking for tsearch... yes
+checking whether tdelete works... yes
+checking for dlfcn.h... (cached) yes
+checking for zlib.h... yes
+checking for rand... yes
+checking for random... yes
+checking for struct sockaddr_in.sin_len... no
+checking whether getsockname is declared... yes
+checking for getsockname... yes
+checking whether getsockname() is usable... yes
+checking for sys/eventfd.h... yes
+checking whether eventfd(2) is usable... yes
+checking for accept4... yes
+checking for gmtime_r... yes
+checking for memmem... yes
+checking for snprintf... yes
+checking whether gmtime_s is declared... no
+checking whether SOCK_NONBLOCK is declared... yes
+checking whether clock_gettime is declared... yes
+checking for library containing clock_gettime... none required
+checking for clock_get_time... no
+checking for gethrtime... no
+checking for IPv6... yes
+checking whether the linker accepts -fvisibility=hidden... yes
+checking whether C compiler accepts -fvisibility=hidden... yes
+checking for suitable libmagic... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking for lseek64... yes
+checking for pread64... yes
+checking for pread... yes
+checking for Linux-style sendfile(2)... yes
+checking for sendfile64... yes
+checking whether to generate error messages... no
+checking whether to enable postprocessor... no
+checking for zzuf... no
+checking for socat... no
+checking whether to support HTTPS... no (disabled)
+checking whether to support HTTP basic authentication... yes
+checking whether to support HTTP digest authentication... yes
+checking whether to support HTTP "Upgrade"... yes
+checking for calloc()... yes
+checking for fork()... yes
+checking for waitpid()... yes
+checking whether to compile with support for code coverage analysis... no
+checking the number of available CPUs... 16
+checking whether to enable debug asserts... no
+checking whether to compile experimental code... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating po/Makefile.in
+config.status: creating src/microhttpd/microhttpd_dll_res.rc
+config.status: creating libmicrohttpd.pc
+config.status: creating w32/common/microhttpd_dll_res_vc.rc
+config.status: creating Makefile
+config.status: creating contrib/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/doxygen/libmicrohttpd.doxy
+config.status: creating doc/doxygen/Makefile
+config.status: creating doc/examples/Makefile
+config.status: creating m4/Makefile
+config.status: creating src/Makefile
+config.status: creating src/include/Makefile
+config.status: creating src/lib/Makefile
+config.status: creating src/microhttpd/Makefile
+config.status: creating src/examples/Makefile
+config.status: creating src/testcurl/Makefile
+config.status: creating src/testcurl/https/Makefile
+config.status: creating src/testzzuf/Makefile
+config.status: creating MHD_config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+configure: GNU libmicrohttpd 0.9.63 Configuration Summary:
+  Target directory:  /usr/local
+  Cross-compiling:   no
+  Operating System:  linux-gnu
+  Shutdown of listening socket trigger select: yes
+  Inter-thread comm: eventfd
+  poll support:      yes
+  epoll support:     yes
+  sendfile used:     yes, Linux-style
+  HTTPS support:     no (disabled)
+  Threading lib:     posix
+  Use thread names:  yes
+  Use debug asserts: no
+  Messages:          no
+  Gettext:           yes
+  Basic auth.:       yes
+  Digest auth.:      yes
+  HTTP "Upgrade":    yes
+  Postproc:          no
+  Build docs:        yes
+  Build examples:    yes
+  Test with libcurl: no, many unit tests will not run
+
+configure:
+  License         :  LGPL or eCos
+
+configure: WARNING: This will be a custom build with missing symbols. Do NOT use this build in a distribution. Building with these kinds of configure options is only for custom builds for embedded systems.

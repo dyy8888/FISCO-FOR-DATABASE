@@ -1,0 +1,47 @@
+[  4%] Performing build step for 'pbc'
+-- pbc build command succeeded.  See also /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-build-*.log
+[  8%] Performing install step for 'pbc'
+-- pbc install command succeeded.  See also /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc-stamp/pbc-install-*.log
+[ 12%] Completed 'pbc'
+[ 32%] Built target pbc
+Scanning dependencies of target pbc_sig
+[ 36%] Creating directories for 'pbc_sig'
+[ 40%] Performing download step (download, verify and extract) for 'pbc_sig'
+-- Downloading...
+   dst='/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc_sig-0.0.8.tar.gz'
+   timeout='none'
+-- Using src='https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/FISCO-BCOS/deps/pbc/pbc_sig-0.0.8.tar.gz'
+-- verifying file...
+       file='/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc_sig-0.0.8.tar.gz'
+-- Downloading... done
+-- extracting...
+     src='/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc_sig-0.0.8.tar.gz'
+     dst='/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc_sig'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[ 44%] Performing patch step for 'pbc_sig'
+patching file CMakeLists.txt
+patching file sig/bbs.c
+[ 48%] No update step for 'pbc_sig'
+[ 52%] Performing configure step for 'pbc_sig'
+-- pbc_sig configure command succeeded.  See also /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc_sig-stamp/pbc_sig-configure-*.log
+[ 56%] Performing build step for 'pbc_sig'
+-- pbc_sig build command succeeded.  See also /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc_sig-stamp/pbc_sig-build-*.log
+[ 60%] Performing install step for 'pbc_sig'
+-- pbc_sig install command succeeded.  See also /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/GroupSigLib/deps/src/pbc_sig-stamp/pbc_sig-install-*.log
+[ 64%] Completed 'pbc_sig'
+[ 64%] Built target pbc_sig
+Scanning dependencies of target group_sig
+[ 68%] Building CXX object group_sig/CMakeFiles/group_sig.dir/algorithm/bbs04/GroupSig_BBS.cpp.o
+[ 72%] Building CXX object group_sig/CMakeFiles/group_sig.dir/algorithm/bbs04/GroupSig_BBS_Impl.cpp.o
+[ 76%] Building CXX object group_sig/CMakeFiles/group_sig.dir/algorithm/ring-sig/LinkableRingSig_Impl.cpp.o
+[ 80%] Building CXX object group_sig/CMakeFiles/group_sig.dir/algorithm/GroupSig.cpp.o
+[ 84%] Building CXX object group_sig/CMakeFiles/group_sig.dir/algorithm/KeyLoaderDumper.cpp.o
+[ 88%] Building CXX object group_sig/CMakeFiles/group_sig.dir/algorithm/RingSig.cpp.o
+[ 92%] Building CXX object group_sig/CMakeFiles/group_sig.dir/devcore/Base64.cpp.o
+[ 96%] Building CXX object group_sig/CMakeFiles/group_sig.dir/devcore/SHA3.cpp.o
+[100%] Linking CXX static library libgroup_sig.a
+[100%] Built target group_sig

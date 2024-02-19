@@ -1,0 +1,9 @@
+Scanning dependencies of target instructions
+[ 20%] Building C object lib/instructions/CMakeFiles/instructions.dir/instruction_metrics.c.o
+[ 40%] Building C object lib/instructions/CMakeFiles/instructions.dir/instruction_names.c.o
+[ 60%] Linking C static library libevmc-instructions.a
+[ 60%] Built target instructions
+Scanning dependencies of target loader
+[ 80%] Building C object lib/loader/CMakeFiles/loader.dir/loader.c.o
+[100%] Linking C static library libevmc-loader.a
+[100%] Built target loader

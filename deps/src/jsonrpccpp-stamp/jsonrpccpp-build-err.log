@@ -1,0 +1,135 @@
+make[3]: 警告: jobserver 不可用: 正使用 -j1。添加 “+” 到父 make 的规则。
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/common/specificationparser.cpp:10:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/common/specificationparser.h:21:97: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   21 |             static std::vector<Procedure> GetProceduresFromFile(const std::string& filename)    throw (JsonRpcException);
+      |                                                                                                 ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/common/specificationparser.h:22:97: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   22 |             static std::vector<Procedure> GetProceduresFromString(const std::string& spec)      throw (JsonRpcException);
+      |                                                                                                 ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/common/specificationparser.cpp:18:90: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   18 | vector<Procedure>   SpecificationParser::GetProceduresFromFile  (const string &filename) throw(JsonRpcException)
+      |                                                                                          ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/common/specificationparser.cpp:24:89: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   24 | vector<Procedure>   SpecificationParser::GetProceduresFromString(const string &content) throw(JsonRpcException)
+      |                                                                                         ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/server/connectors/httpserver.cpp:14:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/../jsonrpccpp/common/specificationparser.h:21:97: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   21 |             static std::vector<Procedure> GetProceduresFromFile(const std::string& filename)    throw (JsonRpcException);
+      |                                                                                                 ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/../jsonrpccpp/common/specificationparser.h:22:97: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   22 |             static std::vector<Procedure> GetProceduresFromString(const std::string& spec)      throw (JsonRpcException);
+      |                                                                                                 ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:13,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:16,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/batchcall.cpp:11:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/iclientconnector.h:23:90: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   23 |             virtual void SendRPCMessage(const std::string& message, std::string& result) throw(JsonRpcException) = 0;
+      |                                                                                          ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:16,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/batchcall.cpp:11:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:33:122: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   33 |             void        CallMethod          (const std::string &name, const Json::Value &parameter, Json::Value& result) throw (JsonRpcException);
+      |                                                                                                                          ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:16,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/batchcall.cpp:11:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:34:101: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   34 |             Json::Value CallMethod          (const std::string &name, const Json::Value &parameter) throw (JsonRpcException);
+      |                                                                                                     ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:36:98: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   36 |             void           CallProcedures      (const BatchCall &calls, BatchResponse &response) throw (JsonRpcException);
+      |                                                                                                  ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:37:73: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   37 |             BatchResponse  CallProcedures      (const BatchCall &calls) throw (JsonRpcException);
+      |                                                                         ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:39:101: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   39 |             void        CallNotification    (const std::string& name, const Json::Value& parameter) throw (JsonRpcException);
+      |                                                                                                     ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/batchcall.cpp:11:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:53:83: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   53 |             void HandleResponse(const std::string &response, Json::Value &result) throw (JsonRpcException);
+      |                                                                                   ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:61:90: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   61 |             Json::Value HandleResponse(const Json::Value &response, Json::Value &result) throw (JsonRpcException);
+      |                                                                                          ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:13,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:10:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/iclientconnector.h:23:90: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   23 |             virtual void SendRPCMessage(const std::string& message, std::string& result) throw(JsonRpcException) = 0;
+      |                                                                                          ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:10:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:33:122: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   33 |             void        CallMethod          (const std::string &name, const Json::Value &parameter, Json::Value& result) throw (JsonRpcException);
+      |                                                                                                                          ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:10:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:34:101: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   34 |             Json::Value CallMethod          (const std::string &name, const Json::Value &parameter) throw (JsonRpcException);
+      |                                                                                                     ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:36:98: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   36 |             void           CallProcedures      (const BatchCall &calls, BatchResponse &response) throw (JsonRpcException);
+      |                                                                                                  ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:37:73: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   37 |             BatchResponse  CallProcedures      (const BatchCall &calls) throw (JsonRpcException);
+      |                                                                         ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:39:101: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   39 |             void        CallNotification    (const std::string& name, const Json::Value& parameter) throw (JsonRpcException);
+      |                                                                                                     ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:11:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:53:83: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   53 |             void HandleResponse(const std::string &response, Json::Value &result) throw (JsonRpcException);
+      |                                                                                   ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:61:90: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   61 |             Json::Value HandleResponse(const Json::Value &response, Json::Value &result) throw (JsonRpcException);
+      |                                                                                          ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:26:101: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   26 | void Client::CallMethod(const std::string &name, const Json::Value &parameter, Json::Value& result) throw(JsonRpcException)
+      |                                                                                                     ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:34:76: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   34 | void Client::CallProcedures(const BatchCall &calls, BatchResponse &result) throw(JsonRpcException)
+      |                                                                            ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:67:62: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   67 | BatchResponse Client::CallProcedures(const BatchCall &calls) throw(JsonRpcException)
+      |                                                              ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:74:87: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   74 | Json::Value Client::CallMethod(const std::string& name, const Json::Value& parameter) throw(JsonRpcException)
+      |                                                                                       ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.cpp:81:86: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   81 | void Client::CallNotification(const std::string& name, const Json::Value& parameter) throw(JsonRpcException)
+      |                                                                                      ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:13,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:16,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.cpp:10:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/iclientconnector.h:23:90: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   23 |             virtual void SendRPCMessage(const std::string& message, std::string& result) throw(JsonRpcException) = 0;
+      |                                                                                          ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:16,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.cpp:10:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:33:122: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   33 |             void        CallMethod          (const std::string &name, const Json::Value &parameter, Json::Value& result) throw (JsonRpcException);
+      |                                                                                                                          ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:16,
+                 from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.cpp:10:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:34:101: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   34 |             Json::Value CallMethod          (const std::string &name, const Json::Value &parameter) throw (JsonRpcException);
+      |                                                                                                     ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:36:98: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   36 |             void           CallProcedures      (const BatchCall &calls, BatchResponse &response) throw (JsonRpcException);
+      |                                                                                                  ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:37:73: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   37 |             BatchResponse  CallProcedures      (const BatchCall &calls) throw (JsonRpcException);
+      |                                                                         ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/client.h:39:101: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   39 |             void        CallNotification    (const std::string& name, const Json::Value& parameter) throw (JsonRpcException);
+      |                                                                                                     ^~~~~
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.cpp:10:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:53:83: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   53 |             void HandleResponse(const std::string &response, Json::Value &result) throw (JsonRpcException);
+      |                                                                                   ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.h:61:90: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   61 |             Json::Value HandleResponse(const Json::Value &response, Json::Value &result) throw (JsonRpcException);
+      |                                                                                          ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.cpp:39:90: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   39 | void RpcProtocolClient::HandleResponse(const std::string &response, Json::Value& result) throw(JsonRpcException)
+      |                                                                                          ^~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/jsonrpccpp/src/jsonrpccpp/client/rpcprotocolclient.cpp:53:94: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   53 | Json::Value RpcProtocolClient::HandleResponse(const Json::Value &value, Json::Value &result) throw(JsonRpcException)
+      |                                                                                              ^~~~~

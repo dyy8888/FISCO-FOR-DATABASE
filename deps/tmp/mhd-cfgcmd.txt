@@ -1,0 +1,1 @@
+cmd='./configure;--enable-spdy=no;--disable-curl;--disable-messages;--disable-postprocessor;--enable-https=no'

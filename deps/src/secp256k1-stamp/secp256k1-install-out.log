@@ -1,0 +1,14 @@
+[ 50%] Built target gen_context
+[ 50%] Built target ecmult_static_context
+Scanning dependencies of target secp256k1
+[ 75%] Building C object CMakeFiles/secp256k1.dir/src/secp256k1.c.o
+[100%] Linking C static library libsecp256k1.a
+[100%] Built target secp256k1
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libsecp256k1.a
+-- Up-to-date: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/secp256k1_recovery.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/secp256k1_sha256.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/secp256k1.h
+-- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/secp256k1_ecdh.h

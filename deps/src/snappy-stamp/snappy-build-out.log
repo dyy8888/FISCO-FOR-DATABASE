@@ -1,0 +1,7 @@
+Scanning dependencies of target snappy
+[ 20%] Building CXX object CMakeFiles/snappy.dir/snappy-c.cc.o
+[ 40%] Building CXX object CMakeFiles/snappy.dir/snappy-sinksource.cc.o
+[ 60%] Building CXX object CMakeFiles/snappy.dir/snappy-stubs-internal.cc.o
+[ 80%] Building CXX object CMakeFiles/snappy.dir/snappy.cc.o
+[100%] Linking CXX static library libsnappy.a
+[100%] Built target snappy

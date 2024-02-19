@@ -1,0 +1,212 @@
+make[3]: 警告: jobserver 不可用: 正使用 -j1。添加 “+” 到父 make 的规则。
+Makefile:3832: 警告：覆盖关于目标“debugallocation_test.sh”的配方
+Makefile:3828: 警告：忽略关于目标“debugallocation_test.sh”的旧配方
+Makefile:3862: 警告：覆盖关于目标“heap-checker_debug_unittest.sh”的配方
+Makefile:3858: 警告：忽略关于目标“heap-checker_debug_unittest.sh”的旧配方
+Makefile:3886: 警告：覆盖关于目标“heap-profiler_debug_unittest.sh”的配方
+Makefile:3882: 警告：忽略关于目标“heap-profiler_debug_unittest.sh”的旧配方
+Makefile:4092: 警告：覆盖关于目标“sampling_debug_test.sh”的配方
+Makefile:4088: 警告：忽略关于目标“sampling_debug_test.sh”的旧配方
+src/tcmalloc.cc:2098:36: warning: ‘void tc_delete_aligned_nothrow(void*, std::align_val_t, const std::nothrow_t&)’ alias between functions of incompatible types ‘void(void*, std::align_val_t, const std::nothrow_t&)’ and ‘void(void*)’ [-Wattribute-alias=]
+ 2098 | extern "C" PERFTOOLS_DLL_DECL void tc_delete_aligned_nothrow(void* p, std::align_val_t, const std::nothrow_t&) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+src/tcmalloc.cc:2089:36: warning: ‘void tc_delete_sized_aligned(void*, size_t, std::align_val_t)’ alias between functions of incompatible types ‘void(void*, size_t, std::align_val_t)’ {aka ‘void(void*, long unsigned int, std::align_val_t)’} and ‘void(void*)’ [-Wattribute-alias=]
+ 2089 | extern "C" PERFTOOLS_DLL_DECL void tc_delete_sized_aligned(void* p, size_t size, std::align_val_t align) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+src/tcmalloc.cc:2078:36: warning: ‘void tc_delete_aligned(void*, std::align_val_t)’ alias between functions of incompatible types ‘void(void*, std::align_val_t)’ and ‘void(void*)’ [-Wattribute-alias=]
+ 2078 | extern "C" PERFTOOLS_DLL_DECL void tc_delete_aligned(void* p, std::align_val_t) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+src/tcmalloc.cc:1996:36: warning: ‘void tc_delete_nothrow(void*, const std::nothrow_t&)’ alias between functions of incompatible types ‘void(void*, const std::nothrow_t&)’ and ‘void(void*)’ [-Wattribute-alias=]
+ 1996 | extern "C" PERFTOOLS_DLL_DECL void tc_delete_nothrow(void* p, const std::nothrow_t&) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~~~~
+src/tcmalloc.cc:1893:6: note: aliased declaration here
+ 1893 | void tc_free(void* ptr) PERFTOOLS_NOTHROW {
+      |      ^~~~~~~
+In file included from src/libc_override_glibc.h:62,
+                 from src/libc_override.h:87,
+                 from src/tcmalloc.cc:150:
+src/libc_override_gcc_and_weak.h:201:6: warning: ‘void operator delete [](void*, size_t, std::align_val_t)’ alias between functions of incompatible types ‘void(void*, size_t, std::align_val_t) noexcept’ {aka ‘void(void*, long unsigned int, std::align_val_t)’} and ‘void(void*)’ [-Wattribute-alias=]
+  201 | void operator delete[](void *p, size_t size, std::align_val_t al) CPP_NOTHROW
+      |      ^~~~~~~~
+src/tcmalloc.cc:2028:36: note: aliased declaration here
+ 2028 | extern "C" PERFTOOLS_DLL_DECL void tc_deletearray(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~
+In file included from src/libc_override_glibc.h:62,
+                 from src/libc_override.h:87,
+                 from src/tcmalloc.cc:150:
+src/libc_override_gcc_and_weak.h:199:6: warning: ‘void operator delete(void*, size_t, std::align_val_t)’ alias between functions of incompatible types ‘void(void*, size_t, std::align_val_t) noexcept’ {aka ‘void(void*, long unsigned int, std::align_val_t)’} and ‘void(void*)’ [-Wattribute-alias=]
+  199 | void operator delete(void *p, size_t size, std::align_val_t al) CPP_NOTHROW
+      |      ^~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+In file included from src/libc_override_glibc.h:62,
+                 from src/libc_override.h:87,
+                 from src/tcmalloc.cc:150:
+src/libc_override_gcc_and_weak.h:130:6: warning: ‘void operator delete [](void*, size_t)’ alias between functions of incompatible types ‘void(void*, size_t) noexcept’ {aka ‘void(void*, long unsigned int)’} and ‘void(void*)’ [-Wattribute-alias=]
+  130 | void operator delete[](void *p, size_t size) CPP_NOTHROW
+      |      ^~~~~~~~
+src/tcmalloc.cc:2028:36: note: aliased declaration here
+ 2028 | extern "C" PERFTOOLS_DLL_DECL void tc_deletearray(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~
+In file included from src/libc_override_glibc.h:62,
+                 from src/libc_override.h:87,
+                 from src/tcmalloc.cc:150:
+src/libc_override_gcc_and_weak.h:128:6: warning: ‘void operator delete(void*, size_t)’ alias between functions of incompatible types ‘void(void*, size_t) noexcept’ {aka ‘void(void*, long unsigned int)’} and ‘void(void*)’ [-Wattribute-alias=]
+  128 | void operator delete(void *p, size_t size) CPP_NOTHROW
+      |      ^~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+ar: `u' modifier ignored since `D' is the default (see `U')
+ar: `u' modifier ignored since `D' is the default (see `U')
+ar: `u' modifier ignored since `D' is the default (see `U')
+ar: `u' modifier ignored since `D' is the default (see `U')
+ar: `u' modifier ignored since `D' is the default (see `U')
+ar: `u' modifier ignored since `D' is the default (see `U')
+ar: `u' modifier ignored since `D' is the default (see `U')
+src/tests/tcmalloc_unittest.cc: In function ‘void testing::TestSetNewMode()’:
+src/tests/tcmalloc_unittest.cc:1067:21: warning: argument 1 value ‘18446744073709451615’ exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+ 1067 |   void* ret = malloc(kTooBig);
+      |               ~~~~~~^~~~~~~~~
+In file included from ./src/tcmalloc.h:46,
+                 from src/tests/tcmalloc_unittest.cc:68:
+/usr/include/malloc.h:38:14: note: in a call to allocation function ‘void* malloc(size_t)’ declared here
+   38 | extern void *malloc (size_t __size) __THROW __attribute_malloc__
+      |              ^~~~~~
+src/tests/tcmalloc_unittest.cc:1073:15: warning: argument 2 value ‘18446744073709451615’ exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+ 1073 |   ret = calloc(1, kTooBig);
+      |         ~~~~~~^~~~~~~~~~~~
+In file included from ./src/tcmalloc.h:46,
+                 from src/tests/tcmalloc_unittest.cc:68:
+/usr/include/malloc.h:42:14: note: in a call to allocation function ‘void* calloc(size_t, size_t)’ declared here
+   42 | extern void *calloc (size_t __nmemb, size_t __size)
+      |              ^~~~~~
+src/tests/tcmalloc_unittest.cc:1079:16: warning: argument 2 value ‘18446744073709451615’ exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+ 1079 |   ret = realloc(NULL, kTooBig);
+      |         ~~~~~~~^~~~~~~~~~~~~~~
+In file included from ./src/tcmalloc.h:46,
+                 from src/tests/tcmalloc_unittest.cc:68:
+/usr/include/malloc.h:50:14: note: in a call to allocation function ‘void* realloc(void*, size_t)’ declared here
+   50 | extern void *realloc (void *__ptr, size_t __size)
+      |              ^~~~~~~
+src/tests/tcmalloc_unittest.cc: In function ‘void testing::TestErrno()’:
+src/tests/tcmalloc_unittest.cc:1115:15: warning: argument 1 value ‘18446744073709451615’ exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+ 1115 |   ret = malloc(kTooBig);
+      |         ~~~~~~^~~~~~~~~
+In file included from ./src/tcmalloc.h:46,
+                 from src/tests/tcmalloc_unittest.cc:68:
+/usr/include/malloc.h:38:14: note: in a call to allocation function ‘void* malloc(size_t)’ declared here
+   38 | extern void *malloc (size_t __size) __THROW __attribute_malloc__
+      |              ^~~~~~
+src/tests/tcmalloc_unittest.cc: In function ‘void testing::TestSetNewMode()’:
+src/tests/tcmalloc_unittest.cc:1067:21: warning: argument 1 value ‘18446744073709451615’ exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+ 1067 |   void* ret = malloc(kTooBig);
+      |               ~~~~~~^~~~~~~~~
+In file included from ./src/tcmalloc.h:46,
+                 from src/tests/tcmalloc_unittest.cc:68:
+/usr/include/malloc.h:38:14: note: in a call to allocation function ‘void* malloc(size_t)’ declared here
+   38 | extern void *malloc (size_t __size) __THROW __attribute_malloc__
+      |              ^~~~~~
+src/tests/tcmalloc_unittest.cc:1073:15: warning: argument 2 value ‘18446744073709451615’ exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+ 1073 |   ret = calloc(1, kTooBig);
+      |         ~~~~~~^~~~~~~~~~~~
+In file included from ./src/tcmalloc.h:46,
+                 from src/tests/tcmalloc_unittest.cc:68:
+/usr/include/malloc.h:42:14: note: in a call to allocation function ‘void* calloc(size_t, size_t)’ declared here
+   42 | extern void *calloc (size_t __nmemb, size_t __size)
+      |              ^~~~~~
+src/tests/tcmalloc_unittest.cc:1079:16: warning: argument 2 value ‘18446744073709451615’ exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+ 1079 |   ret = realloc(NULL, kTooBig);
+      |         ~~~~~~~^~~~~~~~~~~~~~~
+In file included from ./src/tcmalloc.h:46,
+                 from src/tests/tcmalloc_unittest.cc:68:
+/usr/include/malloc.h:50:14: note: in a call to allocation function ‘void* realloc(void*, size_t)’ declared here
+   50 | extern void *realloc (void *__ptr, size_t __size)
+      |              ^~~~~~~
+src/tests/tcmalloc_unittest.cc: In function ‘void testing::TestErrno()’:
+src/tests/tcmalloc_unittest.cc:1115:15: warning: argument 1 value ‘18446744073709451615’ exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+ 1115 |   ret = malloc(kTooBig);
+      |         ~~~~~~^~~~~~~~~
+In file included from ./src/tcmalloc.h:46,
+                 from src/tests/tcmalloc_unittest.cc:68:
+/usr/include/malloc.h:38:14: note: in a call to allocation function ‘void* malloc(size_t)’ declared here
+   38 | extern void *malloc (size_t __size) __THROW __attribute_malloc__
+      |              ^~~~~~
+src/tcmalloc.cc:2098:36: warning: ‘void tc_delete_aligned_nothrow(void*, std::align_val_t, const std::nothrow_t&)’ alias between functions of incompatible types ‘void(void*, std::align_val_t, const std::nothrow_t&)’ and ‘void(void*)’ [-Wattribute-alias=]
+ 2098 | extern "C" PERFTOOLS_DLL_DECL void tc_delete_aligned_nothrow(void* p, std::align_val_t, const std::nothrow_t&) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+src/tcmalloc.cc:2089:36: warning: ‘void tc_delete_sized_aligned(void*, size_t, std::align_val_t)’ alias between functions of incompatible types ‘void(void*, size_t, std::align_val_t)’ {aka ‘void(void*, long unsigned int, std::align_val_t)’} and ‘void(void*)’ [-Wattribute-alias=]
+ 2089 | extern "C" PERFTOOLS_DLL_DECL void tc_delete_sized_aligned(void* p, size_t size, std::align_val_t align) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+src/tcmalloc.cc:2078:36: warning: ‘void tc_delete_aligned(void*, std::align_val_t)’ alias between functions of incompatible types ‘void(void*, std::align_val_t)’ and ‘void(void*)’ [-Wattribute-alias=]
+ 2078 | extern "C" PERFTOOLS_DLL_DECL void tc_delete_aligned(void* p, std::align_val_t) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+src/tcmalloc.cc:1996:36: warning: ‘void tc_delete_nothrow(void*, const std::nothrow_t&)’ alias between functions of incompatible types ‘void(void*, const std::nothrow_t&)’ and ‘void(void*)’ [-Wattribute-alias=]
+ 1996 | extern "C" PERFTOOLS_DLL_DECL void tc_delete_nothrow(void* p, const std::nothrow_t&) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~~~~
+src/tcmalloc.cc:1893:6: note: aliased declaration here
+ 1893 | void tc_free(void* ptr) PERFTOOLS_NOTHROW {
+      |      ^~~~~~~
+In file included from src/libc_override_glibc.h:62,
+                 from src/libc_override.h:87,
+                 from src/tcmalloc.cc:150:
+src/libc_override_gcc_and_weak.h:201:6: warning: ‘void operator delete [](void*, size_t, std::align_val_t)’ alias between functions of incompatible types ‘void(void*, size_t, std::align_val_t) noexcept’ {aka ‘void(void*, long unsigned int, std::align_val_t)’} and ‘void(void*)’ [-Wattribute-alias=]
+  201 | void operator delete[](void *p, size_t size, std::align_val_t al) CPP_NOTHROW
+      |      ^~~~~~~~
+src/tcmalloc.cc:2028:36: note: aliased declaration here
+ 2028 | extern "C" PERFTOOLS_DLL_DECL void tc_deletearray(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~
+In file included from src/libc_override_glibc.h:62,
+                 from src/libc_override.h:87,
+                 from src/tcmalloc.cc:150:
+src/libc_override_gcc_and_weak.h:199:6: warning: ‘void operator delete(void*, size_t, std::align_val_t)’ alias between functions of incompatible types ‘void(void*, size_t, std::align_val_t) noexcept’ {aka ‘void(void*, long unsigned int, std::align_val_t)’} and ‘void(void*)’ [-Wattribute-alias=]
+  199 | void operator delete(void *p, size_t size, std::align_val_t al) CPP_NOTHROW
+      |      ^~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+In file included from src/libc_override_glibc.h:62,
+                 from src/libc_override.h:87,
+                 from src/tcmalloc.cc:150:
+src/libc_override_gcc_and_weak.h:130:6: warning: ‘void operator delete [](void*, size_t)’ alias between functions of incompatible types ‘void(void*, size_t) noexcept’ {aka ‘void(void*, long unsigned int)’} and ‘void(void*)’ [-Wattribute-alias=]
+  130 | void operator delete[](void *p, size_t size) CPP_NOTHROW
+      |      ^~~~~~~~
+src/tcmalloc.cc:2028:36: note: aliased declaration here
+ 2028 | extern "C" PERFTOOLS_DLL_DECL void tc_deletearray(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~~~~~~
+In file included from src/libc_override_glibc.h:62,
+                 from src/libc_override.h:87,
+                 from src/tcmalloc.cc:150:
+src/libc_override_gcc_and_weak.h:128:6: warning: ‘void operator delete(void*, size_t)’ alias between functions of incompatible types ‘void(void*, size_t) noexcept’ {aka ‘void(void*, long unsigned int)’} and ‘void(void*)’ [-Wattribute-alias=]
+  128 | void operator delete(void *p, size_t size) CPP_NOTHROW
+      |      ^~~~~~~~
+src/tcmalloc.cc:1984:36: note: aliased declaration here
+ 1984 | extern "C" PERFTOOLS_DLL_DECL void tc_delete(void* p) PERFTOOLS_NOTHROW
+      |                                    ^~~~~~~~~
+Makefile:3832: 警告：覆盖关于目标“debugallocation_test.sh”的配方
+Makefile:3828: 警告：忽略关于目标“debugallocation_test.sh”的旧配方
+Makefile:3862: 警告：覆盖关于目标“heap-checker_debug_unittest.sh”的配方
+Makefile:3858: 警告：忽略关于目标“heap-checker_debug_unittest.sh”的旧配方
+Makefile:3886: 警告：覆盖关于目标“heap-profiler_debug_unittest.sh”的配方
+Makefile:3882: 警告：忽略关于目标“heap-profiler_debug_unittest.sh”的旧配方
+Makefile:4092: 警告：覆盖关于目标“sampling_debug_test.sh”的配方
+Makefile:4088: 警告：忽略关于目标“sampling_debug_test.sh”的旧配方

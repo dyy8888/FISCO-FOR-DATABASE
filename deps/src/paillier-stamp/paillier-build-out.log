@@ -1,0 +1,11 @@
+Scanning dependencies of target paillier
+[ 14%] Building C object paillierCpp/CMakeFiles/paillier.dir/bn.c.o
+[ 28%] Building CXX object paillierCpp/CMakeFiles/paillier.dir/callpaillier.cpp.o
+[ 42%] Building C object paillierCpp/CMakeFiles/paillier.dir/common.c.o
+[ 57%] Building C object paillierCpp/CMakeFiles/paillier.dir/paillier.c.o
+[ 71%] Linking CXX static library libpaillier.a
+[ 71%] Built target paillier
+Scanning dependencies of target testAdd
+[ 85%] Building CXX object CMakeFiles/testAdd.dir/testAdd.cpp.o
+[100%] Linking CXX executable testAdd
+[100%] Built target testAdd

@@ -1,0 +1,398 @@
+In file included from /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:9:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_pubkey_parse’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubkey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:154:5: note: in expansion of macro ‘ARG_CHECK’
+  154 |     ARG_CHECK(pubkey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘input’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:156:5: note: in expansion of macro ‘ARG_CHECK’
+  156 |     ARG_CHECK(input != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_pubkey_serialize’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘output’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:175:5: note: in expansion of macro ‘ARG_CHECK’
+  175 |     ARG_CHECK(output != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘outputlen’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:171:5: note: in expansion of macro ‘ARG_CHECK’
+  171 |     ARG_CHECK(outputlen != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubkey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:177:5: note: in expansion of macro ‘ARG_CHECK’
+  177 |     ARG_CHECK(pubkey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_signature_parse_der’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sig’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:216:5: note: in expansion of macro ‘ARG_CHECK’
+  216 |     ARG_CHECK(sig != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘input’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:217:5: note: in expansion of macro ‘ARG_CHECK’
+  217 |     ARG_CHECK(input != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_signature_parse_compact’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sig’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:234:5: note: in expansion of macro ‘ARG_CHECK’
+  234 |     ARG_CHECK(sig != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘input64’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:235:5: note: in expansion of macro ‘ARG_CHECK’
+  235 |     ARG_CHECK(input64 != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_signature_serialize_der’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘output’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:253:5: note: in expansion of macro ‘ARG_CHECK’
+  253 |     ARG_CHECK(output != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘outputlen’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:254:5: note: in expansion of macro ‘ARG_CHECK’
+  254 |     ARG_CHECK(outputlen != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sig’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:255:5: note: in expansion of macro ‘ARG_CHECK’
+  255 |     ARG_CHECK(sig != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_signature_serialize_compact’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘output64’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:265:5: note: in expansion of macro ‘ARG_CHECK’
+  265 |     ARG_CHECK(output64 != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sig’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:266:5: note: in expansion of macro ‘ARG_CHECK’
+  266 |     ARG_CHECK(sig != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_signature_normalize’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sigin’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:279:5: note: in expansion of macro ‘ARG_CHECK’
+  279 |     ARG_CHECK(sigin != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_verify’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sig’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:300:5: note: in expansion of macro ‘ARG_CHECK’
+  300 |     ARG_CHECK(sig != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘msg32’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:299:5: note: in expansion of macro ‘ARG_CHECK’
+  299 |     ARG_CHECK(msg32 != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubkey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:301:5: note: in expansion of macro ‘ARG_CHECK’
+  301 |     ARG_CHECK(pubkey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_sign’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘signature’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:353:5: note: in expansion of macro ‘ARG_CHECK’
+  353 |     ARG_CHECK(signature != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘msg32’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:352:5: note: in expansion of macro ‘ARG_CHECK’
+  352 |     ARG_CHECK(msg32 != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘seckey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:354:5: note: in expansion of macro ‘ARG_CHECK’
+  354 |     ARG_CHECK(seckey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_seckey_verify’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘seckey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:396:5: note: in expansion of macro ‘ARG_CHECK’
+  396 |     ARG_CHECK(seckey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_pubkey_create’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubkey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:411:5: note: in expansion of macro ‘ARG_CHECK’
+  411 |     ARG_CHECK(pubkey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘seckey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:414:5: note: in expansion of macro ‘ARG_CHECK’
+  414 |     ARG_CHECK(seckey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_privkey_tweak_add’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘seckey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:433:5: note: in expansion of macro ‘ARG_CHECK’
+  433 |     ARG_CHECK(seckey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘tweak’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:434:5: note: in expansion of macro ‘ARG_CHECK’
+  434 |     ARG_CHECK(tweak != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_pubkey_tweak_add’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubkey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:457:5: note: in expansion of macro ‘ARG_CHECK’
+  457 |     ARG_CHECK(pubkey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘tweak’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:458:5: note: in expansion of macro ‘ARG_CHECK’
+  458 |     ARG_CHECK(tweak != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_privkey_tweak_mul’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘seckey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:480:5: note: in expansion of macro ‘ARG_CHECK’
+  480 |     ARG_CHECK(seckey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘tweak’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:481:5: note: in expansion of macro ‘ARG_CHECK’
+  481 |     ARG_CHECK(tweak != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_pubkey_tweak_mul’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubkey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:503:5: note: in expansion of macro ‘ARG_CHECK’
+  503 |     ARG_CHECK(pubkey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘tweak’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:504:5: note: in expansion of macro ‘ARG_CHECK’
+  504 |     ARG_CHECK(tweak != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ec_pubkey_combine’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubnonce’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:532:5: note: in expansion of macro ‘ARG_CHECK’
+  532 |     ARG_CHECK(pubnonce != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubnonces’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:535:5: note: in expansion of macro ‘ARG_CHECK’
+  535 |     ARG_CHECK(pubnonces != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_recoverable_signature_parse_compact’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sig’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:44:5: note: in expansion of macro ‘ARG_CHECK’
+   44 |     ARG_CHECK(sig != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘input64’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:45:5: note: in expansion of macro ‘ARG_CHECK’
+   45 |     ARG_CHECK(input64 != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_recoverable_signature_serialize_compact’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘output64’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:64:5: note: in expansion of macro ‘ARG_CHECK’
+   64 |     ARG_CHECK(output64 != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘recid’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:66:5: note: in expansion of macro ‘ARG_CHECK’
+   66 |     ARG_CHECK(recid != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sig’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:65:5: note: in expansion of macro ‘ARG_CHECK’
+   65 |     ARG_CHECK(sig != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_recoverable_signature_convert’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sig’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:79:5: note: in expansion of macro ‘ARG_CHECK’
+   79 |     ARG_CHECK(sig != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘sigin’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:80:5: note: in expansion of macro ‘ARG_CHECK’
+   80 |     ARG_CHECK(sigin != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_sign_recoverable’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘signature’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:132:5: note: in expansion of macro ‘ARG_CHECK’
+  132 |     ARG_CHECK(signature != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘msg32’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:131:5: note: in expansion of macro ‘ARG_CHECK’
+  131 |     ARG_CHECK(msg32 != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘seckey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:133:5: note: in expansion of macro ‘ARG_CHECK’
+  133 |     ARG_CHECK(seckey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c: In function ‘secp256k1_ecdsa_recover’:
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘pubkey’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:179:5: note: in expansion of macro ‘ARG_CHECK’
+  179 |     ARG_CHECK(pubkey != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘signature’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:178:5: note: in expansion of macro ‘ARG_CHECK’
+  178 |     ARG_CHECK(signature != NULL);
+      |     ^~~~~~~~~
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/secp256k1.c:22:16: warning: nonnull argument ‘msg32’ compared to NULL [-Wnonnull-compare]
+   22 |     if (EXPECT(!(cond), 0)) { \
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/util.h:40:39: note: in definition of macro ‘EXPECT’
+   40 | #define EXPECT(x,c) __builtin_expect((x),(c))
+      |                                       ^
+/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1/src/modules/recovery/main_impl.h:177:5: note: in expansion of macro ‘ARG_CHECK’
+  177 |     ARG_CHECK(msg32 != NULL);
+      |     ^~~~~~~~~

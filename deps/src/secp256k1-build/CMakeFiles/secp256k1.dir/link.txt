@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsecp256k1.a  CMakeFiles/secp256k1.dir/src/secp256k1.c.o
+/usr/bin/ranlib libsecp256k1.a
