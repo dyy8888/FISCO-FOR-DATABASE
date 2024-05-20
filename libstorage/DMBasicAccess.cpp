@@ -105,17 +105,6 @@ int DMBasicAccess::Select(int64_t, const string& _table, const string&, Conditio
             }            
 
         }
-        // DMBasicAccess_LOG(INFO)<<"select查看";
-        // auto tableIter = tableColumnType.find(tableName);
-        //         if (tableIter != tableColumnType.end()) {
-        //             DMBasicAccess_LOG(INFO)<<"表名："<<tableIter->first;
-        //             const auto& innerMap = tableIter->second;
-        //             for (const auto& columnPair : innerMap) {
-        //                 DMBasicAccess_LOG(INFO)<<"表项："<<columnPair.first<<",类型:"<<columnPair.second;
-        //             }
-        //         } else {
-        //              DMBasicAccess_LOG(INFO)<< "Table not found: " << tableName;
-        //         }
         while (ResultSet_next(result))
         {
             map<string, string> value;
@@ -493,17 +482,11 @@ int DMBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _datas, 
                 
                 vector<DMPlaceholderItem> sqlPlaceholders =
                     this->BuildCommitSql(tableName, name, values);
-                // for (size_t i = 0; i < sqlPlaceholders.size(); ++i) {
-                //     DMBasicAccess_LOG(INFO)<<"查看commit语句:"<<sqlPlaceholders[i].sql;
-                // }
                 vector<string> fieldNames;
                 boost::split(fieldNames, name, boost::is_any_of(","));
                 auto outer_it = tableColumnType.find(tableName);
-                // DMBasicAccess_LOG(INFO)<<"当前要查询的表格为:"<<tableName;
-                //如果缓存中不包含该表格的表项和类型信息，则去查询
                 if (outer_it == tableColumnType.end())
                 {
-                    // DMBasicAccess_LOG(INFO)<<"不存在";
                     for (const std::string& item : fieldNames) 
                     {
                         PreparedStatement_T _prepareStatement_select =
@@ -519,7 +502,6 @@ int DMBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _datas, 
                             {
                                 auto fieldName = ResultSet_getColumnName(result, index);
                                 auto selectResult = ResultSet_getStringByName(result, fieldName);
-                                // DMBasicAccess_LOG(INFO)<<"查看哈希表tablename:"<<tableName<<" fieldname:"<<field<<" selectResult:"<<selectResult;
                                 tableColumnType[tableName][field]=selectResult;
                                 field2Type.push_back(selectResult);
                             }      
@@ -529,42 +511,21 @@ int DMBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _datas, 
                     for (const std::string& item : fieldNames) 
                     {
                         auto field = boost::algorithm::replace_all_copy(item, "\"", "");
-                        // DMBasicAccess_LOG(INFO)<<"存在";
                         string checkRes=tableColumnType[tableName][field];
-                        // DMBasicAccess_LOG(INFO)<<"checkRes:"<<checkRes<<" field"<<field;
                         field2Type.push_back(checkRes);
                     }
                 }
-                // auto tableIter = tableColumnType.find(tableName);
-                // if (tableIter != tableColumnType.end()) {
-                //     // DMBasicAccess_LOG(INFO)<<"表名："<<tableIter->first;
-                //     const auto& innerMap = tableIter->second;
-                //     for (const auto& columnPair : innerMap) {
-                //         // DMBasicAccess_LOG(INFO)<<"表项："<<columnPair.first<<",类型:"<<columnPair.second;
-                //     // }
-                // } else {
-                //      DMBasicAccess_LOG(INFO)<< "Table not found: " << tableName;
-                // }
-
-                // for (size_t i = 0; i < field2Type.size(); ++i) {
-                //     DMBasicAccess_LOG(INFO)<<"查看field2Type中的内容:第"<<i<<"项的内容是："<<field2Type[i];
-                // }
                 uint32_t size1 = field2Type.size();
                 vector<string> dealedStr;
                 for (size_t i = 0; i < values.size(); ++i) {
                     if (field2Type[i%size1]=="CLOB")
                     {
-                        // string base64=values[i];、
-                        //  DMBasicAccess_LOG(INFO)<<"插入的是CLOB："<<base64_encode(compressString(values[i]));
                         dealedStr.push_back(base64_encode(compressString(values[i])));
 
                     }else{
                         dealedStr.push_back(values[i]);
                     }
                 }
-                // for (size_t i = 0; i < dealedStr.size(); ++i) {
-                //     DMBasicAccess_LOG(INFO)<<"查看dealedStr中的内容:第"<<i<<"项的内容是："<<dealedStr[i];
-                // }
                 string searchSql;
                 auto itValue = dealedStr.begin();
                 auto itValueSearch = dealedStr.begin();

@@ -29,6 +29,7 @@
 #include "libstorage/RocksDBStorageFactory.h"
 #include "libstorage/SQLConnectionPool.h"
 #include "libstorage/DMConnectionPool.h"
+#include "libstorage/KingBaseConnectionPool.h"
 #include "libstorage/ScalableStorage.h"
 #include "rocksdb/db.h"
 #include "rocksdb/options.h"
@@ -47,6 +48,7 @@
 #include <libstorage/SQLStorage.h>
 #include <libstorage/ZdbStorage.h>
 #include <libstorage/DMStorage.h>
+#include <libstorage/KingBaseStorage.h>
 #include <libstoragestate/StorageStateFactory.h>
 #include <boost/lexical_cast.hpp>
 
@@ -95,8 +97,13 @@ void DBInitializer::initStorageDB()
     }
     else if (!dev::stringCmpIgnoreCase(m_param->mutableStorageParam().type, "DM"))
     {
-        cout<<"进行DM的初始化连接"<<endl;
         auto storage = initDMStorage();
+
+        initTableFactory2(storage, m_param);
+    }
+    else if (!dev::stringCmpIgnoreCase(m_param->mutableStorageParam().type, "kingbase"))
+    {
+        auto storage = initKingBaseStorage();
 
         initTableFactory2(storage, m_param);
     }
@@ -486,7 +493,26 @@ dev::storage::Storage::Ptr DBInitializer::initDMStorage()
     });
     return dmStorage;
 }
-/// create ExecutiveContextFactory
+dev::storage::Storage::Ptr DBInitializer::initKingBaseStorage()
+{
+    DBInitializer_LOG(INFO) << LOG_BADGE("initStorageDB") << LOG_BADGE("initKingBaseStorage");
+
+    // exit when enable the unsupported features
+    unsupportedFeatures("DMStorage");
+
+    auto kingbaseStorage = createKingBaseStorage(m_param, [](std::exception& e) {
+        DBInitializer_LOG(ERROR) << LOG_BADGE("STORAGE") << LOG_BADGE("KingBase")
+                                 << "access dm failed exit:" << e.what();
+        raise(SIGTERM);
+        while (!g_BCOSConfig.shouldExit.load())
+        {  // wait to exit
+            std::this_thread::yield();
+        }
+        BOOST_THROW_EXCEPTION(e);
+    });
+    return kingbaseStorage;
+}
+// create ExecutiveContextFactory
 void DBInitializer::createExecutiveContext()
 {
     if (!m_storage || !m_stateFactory)
@@ -642,4 +668,33 @@ dev::storage::Storage::Ptr dev::ledger::createDMStorage(
     dmStorage->setMaxRetry(_param->mutableStorageParam().maxRetry);
 
     return dmStorage;
+}
+
+dev::storage::Storage::Ptr dev::ledger::createKingBaseStorage(
+    std::shared_ptr<LedgerParamInterface> _param,
+    std::function<void(std::exception& e)> _fatalHandler)
+{
+    cout<<_param->mutableStorageParam().dbIP<<_param->mutableStorageParam().dbType
+    << _param->mutableStorageParam().dbIP<<_param->mutableStorageParam().dbPort<< _param->mutableStorageParam().dbUsername
+    <<_param->mutableStorageParam().dbPasswd<<_param->mutableStorageParam().dbName;
+    KingBaseConnectionPoolConfig connectionConfig{_param->mutableStorageParam().dbType,
+        _param->mutableStorageParam().dbIP, _param->mutableStorageParam().dbPort,
+        _param->mutableStorageParam().dbUsername, _param->mutableStorageParam().dbPasswd,
+        _param->mutableStorageParam().dbName, _param->mutableStorageParam().dbCharset,
+        _param->mutableStorageParam().initConnections,
+        _param->mutableStorageParam().maxConnections};
+    auto kingbaseStorage = std::make_shared<KingBaseStorage>();
+
+    auto sqlconnpool = std::make_shared<KingBaseConnectionPool>();
+    sqlconnpool->createDataBase(connectionConfig);
+    sqlconnpool->InitConnectionPool(connectionConfig);
+
+    auto sqlAccess = std::make_shared<KingBaseBasicAccess>();
+    kingbaseStorage->SetSqlAccess(sqlAccess);
+    kingbaseStorage->setConnPool(sqlconnpool);
+
+    kingbaseStorage->setFatalHandler(_fatalHandler);
+    kingbaseStorage->setMaxRetry(_param->mutableStorageParam().maxRetry);
+
+    return kingbaseStorage;
 }

@@ -652,6 +652,9 @@ void LedgerParam::initStorageConfig(ptree const& pt)
     if (!dev::stringCmpIgnoreCase(mutableStorageParam().type, "dm")){
         mutableStorageParam().dbType = pt.get<std::string>("storage.db_type", "dm");
     }
+    if (!dev::stringCmpIgnoreCase(mutableStorageParam().type, "kingbase")){
+        mutableStorageParam().dbType = pt.get<std::string>("storage.db_type", "kingbase");
+    }
     mutableStorageParam().dbIP = pt.get<std::string>("storage.db_ip", "127.0.0.1");
     mutableStorageParam().dbPort = pt.get<int>("storage.db_port", 3306);
     mutableStorageParam().dbUsername = pt.get<std::string>("storage.db_username", "");

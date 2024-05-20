@@ -1,9 +1,0 @@
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libsnappy.a
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/snappy-c.h
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/snappy-sinksource.h
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/snappy.h
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/snappy-stubs-public.h
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/Snappy/SnappyTargets.cmake
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/Snappy/SnappyTargets-release.cmake
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/Snappy/SnappyConfig.cmake
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/cmake/Snappy/SnappyConfigVersion.cmake

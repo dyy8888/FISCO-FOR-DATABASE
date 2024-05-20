@@ -1,7 +1,0 @@
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/snappy/CMakeFiles/install/strip.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/snappy/CMakeFiles/install/local.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/snappy/CMakeFiles/edit_cache.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/snappy/CMakeFiles/install.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/snappy/CMakeFiles/list_install_components.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/snappy/CMakeFiles/rebuild_cache.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/snappy/CMakeFiles/snappy.dir

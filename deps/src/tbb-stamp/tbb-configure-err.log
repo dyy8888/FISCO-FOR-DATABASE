@@ -1,6 +1,0 @@
-CMake Warning at CMakeLists.txt:116 (message):
-  You are building oneTBB as a static library.  This is highly discouraged
-  and such configuration is not supported.  Consider building a dynamic
-  library to avoid unforeseen issues.
-
-

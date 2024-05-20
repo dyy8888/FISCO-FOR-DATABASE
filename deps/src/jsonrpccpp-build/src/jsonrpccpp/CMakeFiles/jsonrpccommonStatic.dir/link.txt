@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libjsonrpccpp-common.a  CMakeFiles/jsonrpccommonStatic.dir/common/errors.cpp.o CMakeFiles/jsonrpccommonStatic.dir/common/exception.cpp.o CMakeFiles/jsonrpccommonStatic.dir/common/procedure.cpp.o CMakeFiles/jsonrpccommonStatic.dir/common/specificationparser.cpp.o CMakeFiles/jsonrpccommonStatic.dir/common/specificationwriter.cpp.o
-/usr/bin/ranlib ../../lib/libjsonrpccpp-common.a

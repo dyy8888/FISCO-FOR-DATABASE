@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libjsonrpccpp-client.a  CMakeFiles/jsonrpcclientStatic.dir/client/batchcall.cpp.o CMakeFiles/jsonrpcclientStatic.dir/client/batchresponse.cpp.o CMakeFiles/jsonrpcclientStatic.dir/client/client.cpp.o CMakeFiles/jsonrpcclientStatic.dir/client/rpcprotocolclient.cpp.o
-/usr/bin/ranlib ../../lib/libjsonrpccpp-client.a

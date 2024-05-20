@@ -33,6 +33,10 @@ std::map<SQLFieldType, std::string> dev::storage::SQLFieldTypeName{
     {SQLFieldType::MediumBlobType, "mediumblob"}, {SQLFieldType::LongBlobType, "longblob"},
     {SQLFieldType::MediumStringType, "mediumtext"}, {SQLFieldType::LongStringType, "longtext"}};
 
+std::map<KingBaseFieldType, std::string> dev::storage::KingBaseFieldTypeName{
+    {KingBaseFieldType::KMediumBlobType, "mediumtext"}, {KingBaseFieldType::KLongBlobType, "longtext"},
+    {KingBaseFieldType::KMediumStringType, "mediumtext"}, {KingBaseFieldType::KLongStringType, "longtext"}};
+
 bool dev::storage::isHashField(const std::string& _key)
 {
     if (!_key.empty())

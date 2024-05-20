@@ -1,5 +1,0 @@
-Name: libjsonrpccpp-client
-Description: A C++ client implementation of json-rpc.
-Version: 0.7.0
-Libs: -L/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/ -ljsoncpp -ljsonrpccpp-common -ljsonrpccpp-client -lcurl
-Cflags: -I/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include
