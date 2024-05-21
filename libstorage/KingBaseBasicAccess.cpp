@@ -64,7 +64,7 @@ int KingBaseBasicAccess::Select(int64_t, const string& _table, const string&, Co
     {
         PreparedStatement_T _prepareStatement =
             Connection_prepareStatement(conn, "%s", sql.c_str());
-        KingBaseBasicAccess_LOG(INFO) << "查看执行的sql语句：" << sql.c_str();
+        // KingBaseBasicAccess_LOG(INFO) << "查看执行的sql语句：" << sql.c_str();
 
         if (_condition)
         {
@@ -73,12 +73,11 @@ int KingBaseBasicAccess::Select(int64_t, const string& _table, const string&, Co
             {
                 PreparedStatement_setString(
                     _prepareStatement, ++index, it.second.right.second.c_str());
-                KingBaseBasicAccess_LOG(INFO) << "查看执行的sql语句插入的参数：" << it.second.right.second.c_str();             
+                // KingBaseBasicAccess_LOG(INFO) << "查看执行的sql语句插入的参数：" << it.second.right.second.c_str();             
             }
         }
         ResultSet_T result = PreparedStatement_executeQuery(_prepareStatement);
         int32_t columnCnt = ResultSet_getColumnCount(result);
-        KingBaseBasicAccess_LOG(INFO) << "查询到的行数：" << columnCnt;
 
         map<string, map<string, string>> tableColumnType;
         string tableName;
@@ -105,9 +104,7 @@ int KingBaseBasicAccess::Select(int64_t, const string& _table, const string&, Co
                 }
 	        }
         }            
-
         // bool tableWithBlobField = isBlobType(_table);
-
         while (ResultSet_next(result))
         {
             map<string, string> value;
@@ -115,25 +112,23 @@ int KingBaseBasicAccess::Select(int64_t, const string& _table, const string&, Co
             {
                 auto columnName = ResultSet_getColumnName(result, index);
                 string selectResult=tableColumnType[tableName][columnName];
-                KingBaseBasicAccess_LOG(INFO) << "当前查询的数据类型是：" << selectResult;
+                // KingBaseBasicAccess_LOG(INFO) << "当前查询的数据类型是：" << selectResult;
                 if (selectResult=="text")
                 {
                     auto coded = ResultSet_getString(result, index);
                     // Note: Since the field may not be set, it must be added here to determine
                     //       whether the value of the obtained field is nullptr
-                     KingBaseBasicAccess_LOG(INFO) << "当前查到的是：" << coded;
+                    //  KingBaseBasicAccess_LOG(INFO) << "当前查到的是：" << coded;
                     if (coded)
                     {
-                        //  value[columnName] = coded;
-                        string temp=base64_decode(string(coded),string(coded).size());
-                        KingBaseBasicAccess_LOG(INFO) << "text 进行decodd是：" << temp;
+                        string temp=base64_decode(string(coded),string(coded).size()*2);
                         value[columnName] =temp;
                     }
                 }
                 else
                 {
                     auto selectResult = ResultSet_getString(result, index);
-                    KingBaseBasicAccess_LOG(INFO) << "当前查到的是：" << selectResult;
+                    // KingBaseBasicAccess_LOG(INFO) << "当前查到的是：" << selectResult;
                     if (selectResult)
                     {
                         value[columnName] = selectResult;
@@ -143,7 +138,6 @@ int KingBaseBasicAccess::Select(int64_t, const string& _table, const string&, Co
             _values.push_back(move(value));
         }
     }
-    // Connection_execute(conn,"commit;");
     CATCH(SQLException)
     {
         m_connPool->ReturnConnection(conn);
@@ -536,24 +530,10 @@ int KingBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _d
                     for (; itValue != dealedStr.end(); ++itValue)
                     {
                         KingBaseBasicAccess_LOG(INFO) << " 当前类型为:" << field2Type[index%size];
-                        // if (field2Type[index%size]=="text")
-                        // {
-                        //     KingBaseBasicAccess_LOG(INFO) << " 为text:" << base64_encode(*itValue).c_str() ;
-                        //     PreparedStatement_setString(
-                        //         preStatement, ++index, base64_encode(*itValue).c_str());
-
-                                
-                        //         KingBaseBasicAccess_LOG(INFO) << " index:" << index << " num:" << _num 
-                        //                               <<" stringsize is :"<<itValue->size()<< "char is: "<<strlen(itValue->c_str())
-                        //                               << " setBlob:" << itValue->c_str()<<" base64is dyy  : "<<base64_encode(*itValue);
-                                                      
-                        // }
-                        // else
-                        // {
-                            PreparedStatement_setString(preStatement, ++index, itValue->c_str());
-                            KingBaseBasicAccess_LOG(INFO) << " index:" << index << " num:" << _num
+                       
+                        PreparedStatement_setString(preStatement, ++index, itValue->c_str());
+                        KingBaseBasicAccess_LOG(INFO) << " index:" << index << " num:" << _num
                                                       << " setString:" << itValue->c_str();
-                        // }
 
                         if (index == placeholder.placeholderCnt)
                         {
@@ -726,99 +706,3 @@ bool KingBaseBasicAccess::JudgeIfCreateUnique()
     return flag;
     
 }
-
-// std::string base64_decode(const std::string& encoded,int size) {
-//     BIO *bio, *b64;
-//     char outbuf[size];
-//     std::string decoded;
-
-//     b64 = BIO_new(BIO_f_base64());
-//     BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
-//     bio = BIO_new_mem_buf(encoded.c_str(), static_cast<int>(encoded.length()));
-//     bio = BIO_push(b64, bio);
-//     int bytesRead = BIO_read(bio, outbuf, encoded.length());
-
-//     decoded.assign(outbuf, bytesRead);
-
-//     BIO_free_all(bio);
-
-//     return decoded;
-// }
-// std::string base64_encode(const std::string& input) {
-//     BIO *bio, *b64;
-//     BUF_MEM *bufferPtr;
-//     std::string encoded;
-
-//     b64 = BIO_new(BIO_f_base64());
-//     BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
-//     bio = BIO_new(BIO_s_mem());
-//     BIO_push(b64, bio);
-//     BIO_write(b64, input.c_str(), static_cast<int>(input.length()));
-//     BIO_flush(b64);
-//     BIO_get_mem_ptr(b64, &bufferPtr);
-
-//     encoded.assign(bufferPtr->data, bufferPtr->length);
-
-//     BIO_free_all(b64);
-
-//     return encoded;
-// }
-// std::string compressString(const std::string& input) {
-//     std::string compressed;
-
-//     z_stream zs;
-//     std::memset(&zs, 0, sizeof(zs));
-
-//     if (deflateInit(&zs, Z_BEST_COMPRESSION) != Z_OK) {
-//         return "";
-//     }
-
-//     zs.next_in = (Bytef*)input.data();
-//     zs.avail_in = input.size();
-
-//     int ret;
-//     char outbuffer[input.size()];
-//     do {
-//         zs.next_out = reinterpret_cast<Bytef*>(outbuffer);
-//         zs.avail_out = sizeof(outbuffer);
-
-//         ret = deflate(&zs, Z_FINISH);
-//         if (compressed.size() < zs.total_out) {
-//             compressed.append(outbuffer, zs.total_out - compressed.size());
-//         }
-//     } while (ret == Z_OK);
-
-//     deflateEnd(&zs);
-//     return compressed;
-// }
-
-
-// std::string decompressString(const std::string& input, size_t compressedSize) {
-//     std::string decompressed;
-
-//     z_stream zs;
-//     std::memset(&zs, 0, sizeof(zs));
-
-//     if (inflateInit(&zs) != Z_OK) {
-//         return "";
-//     }
-
-//     zs.next_in = (Bytef*)input.data();
-//     zs.avail_in = compressedSize;
-
-//     int ret;
-//     char outbuffer[compressedSize*20];
-//     do {
-//         zs.next_out = reinterpret_cast<Bytef*>(outbuffer);
-//         zs.avail_out = sizeof(outbuffer);
-
-//         ret = inflate(&zs, Z_FINISH);
-//         if (decompressed.size() < zs.total_out) {
-//             decompressed.append(outbuffer, zs.total_out - decompressed.size());
-//         }
-//     } while (ret == Z_OK);
-
-//     inflateEnd(&zs);
-
-//     return decompressed;
-// }
