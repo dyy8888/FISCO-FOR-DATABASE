@@ -5,12 +5,12 @@ if (APPLE)
 else()
     set(SED_CMMAND sed -i)
 endif()
-set(DM_DCI_LIB ${CMAKE_SOURCE_DIR}/deps/lib/libdmoci.a)
-set(DM_RT_LIB ${CMAKE_SOURCE_DIR}/deps/lib/librt.a)
+set(DM_DCI_LIB ${CMAKE_SOURCE_DIR}/deps/lib/libclntsh.so)
+# set(DM_RT_LIB ${CMAKE_SOURCE_DIR}/deps/lib/libcrypto.a)
 
 ExternalProject_Add(libzdb 
     PREFIX ${CMAKE_SOURCE_DIR}/deps
-    SOURCE_DIR /home/dyy/LibzdbForDM
+    SOURCE_DIR /home/dyy/libzdb-3.2.3
     BUILD_IN_SOURCE 1
     LOG_CONFIGURE 1
     LOG_BUILD 1
@@ -27,7 +27,7 @@ file(MAKE_DIRECTORY ${LIBZDB_INCLUDE_DIR})  # Must exist.
 
 set_property(TARGET zdb PROPERTY IMPORTED_LOCATION ${LIBZDB_LIBRARY})
 set_property(TARGET zdb PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${LIBZDB_INCLUDE_DIR})
-set_property(TARGET zdb PROPERTY INTERFACE_LINK_LIBRARIES ${DM_DCI_LIB} ${DM_RT_LIB} z)
+set_property(TARGET zdb PROPERTY INTERFACE_LINK_LIBRARIES ${DM_DCI_LIB} z)
 add_dependencies(zdb libzdb)
 unset(SOURCE_DIR)
 

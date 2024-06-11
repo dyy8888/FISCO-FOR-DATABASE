@@ -1,3 +1,0 @@
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmone/evmone.h
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libevmone.a
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libkeccak.a

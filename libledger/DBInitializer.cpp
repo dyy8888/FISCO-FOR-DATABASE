@@ -29,6 +29,7 @@
 #include "libstorage/RocksDBStorageFactory.h"
 #include "libstorage/SQLConnectionPool.h"
 #include "libstorage/DMConnectionPool.h"
+#include "libstorage/GBaseConnectionPool.h"
 #include "libstorage/ScalableStorage.h"
 #include "rocksdb/db.h"
 #include "rocksdb/options.h"
@@ -47,6 +48,7 @@
 #include <libstorage/SQLStorage.h>
 #include <libstorage/ZdbStorage.h>
 #include <libstorage/DMStorage.h>
+#include <libstorage/GBaseStorage.h>
 #include <libstoragestate/StorageStateFactory.h>
 #include <boost/lexical_cast.hpp>
 
@@ -95,8 +97,13 @@ void DBInitializer::initStorageDB()
     }
     else if (!dev::stringCmpIgnoreCase(m_param->mutableStorageParam().type, "DM"))
     {
-        cout<<"进行DM的初始化连接"<<endl;
         auto storage = initDMStorage();
+
+        initTableFactory2(storage, m_param);
+    }
+    else if (!dev::stringCmpIgnoreCase(m_param->mutableStorageParam().type, "GBase"))
+    {
+        auto storage = initGBaseStorage();
 
         initTableFactory2(storage, m_param);
     }
@@ -486,6 +493,25 @@ dev::storage::Storage::Ptr DBInitializer::initDMStorage()
     });
     return dmStorage;
 }
+dev::storage::Storage::Ptr DBInitializer::initGBaseStorage()
+{
+    DBInitializer_LOG(INFO) << LOG_BADGE("initStorageDB") << LOG_BADGE("initGBaseStorage");
+
+    // exit when enable the unsupported features
+    unsupportedFeatures("GBaseStorage");
+
+    auto gbaseStorage = createGBaseStorage(m_param, [](std::exception& e) {
+        DBInitializer_LOG(ERROR) << LOG_BADGE("STORAGE") << LOG_BADGE("GBase")
+                                 << "access dm failed exit:" << e.what();
+        raise(SIGTERM);
+        while (!g_BCOSConfig.shouldExit.load())
+        {  // wait to exit
+            std::this_thread::yield();
+        }
+        BOOST_THROW_EXCEPTION(e);
+    });
+    return gbaseStorage;
+}
 /// create ExecutiveContextFactory
 void DBInitializer::createExecutiveContext()
 {
@@ -642,4 +668,30 @@ dev::storage::Storage::Ptr dev::ledger::createDMStorage(
     dmStorage->setMaxRetry(_param->mutableStorageParam().maxRetry);
 
     return dmStorage;
+}
+
+dev::storage::Storage::Ptr dev::ledger::createGBaseStorage(
+    std::shared_ptr<LedgerParamInterface> _param,
+    std::function<void(std::exception& e)> _fatalHandler)
+{
+    GBaseConnectionPoolConfig connectionConfig{_param->mutableStorageParam().dbType,
+        _param->mutableStorageParam().dbIP, _param->mutableStorageParam().dbPort,
+        _param->mutableStorageParam().dbUsername, _param->mutableStorageParam().dbPasswd,
+        _param->mutableStorageParam().dbName, _param->mutableStorageParam().dbCharset,
+        _param->mutableStorageParam().initConnections,
+        _param->mutableStorageParam().maxConnections};
+    auto gbaseStorage = std::make_shared<GBaseStorage>();
+
+    auto sqlconnpool = std::make_shared<GBaseConnectionPool>();
+    sqlconnpool->createDataBase(connectionConfig);
+    sqlconnpool->InitConnectionPool(connectionConfig);
+
+    auto sqlAccess = std::make_shared<GBaseBasicAccess>();
+    gbaseStorage->SetSqlAccess(sqlAccess);
+    gbaseStorage->setConnPool(sqlconnpool);
+
+    gbaseStorage->setFatalHandler(_fatalHandler);
+    gbaseStorage->setMaxRetry(_param->mutableStorageParam().maxRetry);
+
+    return gbaseStorage;
 }

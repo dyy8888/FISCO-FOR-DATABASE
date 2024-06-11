@@ -94,6 +94,11 @@ enum DMFieldType : int8_t
     ClobType=1,
 };
 extern std::map<DMFieldType, std::string> DMFieldTypeName;
+enum GBaseFieldType : int8_t
+{
+    BlobType=1,
+};
+extern std::map<GBaseFieldType, std::string> GBaseFieldTypeName;
 enum SQLFieldType : int8_t
 {
     MediumBlobType = 0,

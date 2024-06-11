@@ -1,1 +1,0 @@
-/usr/bin/c++   -DSTATICLIB -std=c++11   CMakeFiles/testAdd.dir/testAdd.cpp.o  -o testAdd  paillierCpp/libpaillier.a 

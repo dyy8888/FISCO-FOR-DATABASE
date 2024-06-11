@@ -38,7 +38,6 @@ GBaseStorage::GBaseStorage() {}
 Entries::Ptr GBaseStorage::select(
     int64_t _num, TableInfo::Ptr _tableInfo, const std::string& _key, Condition::Ptr _condition)
 {   
-    // GBaseStorage_LOG(INFO)<<"执行select";
     std::vector<std::map<std::string, std::string> > values;
     int ret = 0, i = 0;
     for (i = 0; i < m_maxRetry; ++i)
@@ -85,6 +84,7 @@ Entries::Ptr GBaseStorage::select(
             }
             else
             {
+                GBaseStorage_LOG(INFO) << "查看first: "<<it2.first<<",查看second: "<<it2.second<<", 长度是："<<it2.second.size();
                 entry->setField(it2.first, it2.second);
             }
         }
@@ -111,7 +111,6 @@ void GBaseStorage::SetSqlAccess(GBaseBasicAccess::Ptr _sqlBasicAcc)
 
 size_t GBaseStorage::commit(int64_t _num, const std::vector<TableData::Ptr>& _datas)
 {
-    // GBaseStorage_LOG(INFO)<<"执行commit";
     int32_t ret = 0;
     for (int i = 0; i < m_maxRetry; ++i)
     {
@@ -172,20 +171,19 @@ void GBaseStorage::createSysTables()
     ss << " table_name varchar(128) DEFAULT '',\n";
     ss << " key_field varchar(1024) DEFAULT '',\n";
     ss << " value_field varchar(1024) DEFAULT '',\n";
-    ss << " PRIMARY KEY(_id_) ;";
+    ss << " PRIMARY KEY(_id_)) ;";
     string sql = ss.str();
     GBaseStorage_LOG(INFO) << "createSysTables:" << sql ;
     m_sqlBasicAcc->ExecuteSql(sql);
     stringstream index;
     index<<"CREATE UNIQUE INDEX IF NOT EXISTS table_name ON "<<SYS_TABLES<<" (table_name);";
-    string sql = index.str();
-    m_sqlBasicAcc->ExecuteSql(sql); 
+    m_sqlBasicAcc->ExecuteSql(index.str().c_str()); 
 }
 
 void GBaseStorage::createCnsTables()
 {
     stringstream ss;
-    ss << "CREATE TABLE IF NOT EXISTS " << SYS_CNS << "\" (\n";
+    ss << "CREATE TABLE IF NOT EXISTS " << SYS_CNS << " (\n";
     ss << getCommonFileds();
     ss << "name varchar(128) ,\n";
     ss << "version varchar(128) ,\n";
@@ -384,22 +382,35 @@ void GBaseStorage::createSysBlock2NoncesTables()
 void GBaseStorage::insertSysTables()
 {
     stringstream ss;
-    ss << "insert /*+ IGNORE_ROW_ON_DUPKEY_INDEX(\"_sys_tables_\"(\"table_name\")) */ into  \"SYSDBA\".\"" << SYS_TABLES
-       << "\" (\"table_name\",\"key_field\",\"value_field\")VALUES\n";
-    ss << "	('" << SYS_TABLES << "', 'table_name','key_field,value_field'),\n";
-    ss << "	('" << SYS_CONSENSUS << "', 'name','type,node_id,enable_num'),\n";
-    ss << "	('" << SYS_ACCESS_TABLE << "', 'table_name','address,enable_num'),\n";
-    ss << "	('" << SYS_CURRENT_STATE << "', 'key','value'),\n";
-    ss << "	('" << SYS_NUMBER_2_HASH << "', 'number','value'),\n";
-    ss << "	('" << SYS_TX_HASH_2_BLOCK << "', 'hash','value,index'),\n";
-    ss << "	('" << SYS_HASH_2_BLOCK << "', 'hash','value'),\n";
-    ss << "	('" << SYS_CNS << "', 'name','version,address,abi'),\n";
-    ss << "	('" << SYS_CONFIG << "', 'key','value,enable_num'),\n";
-    ss << "	('" << SYS_BLOCK_2_NONCES << "', 'number','value'),\n";
-    ss << "	('" << SYS_HASH_2_BLOCKHEADER << "', 'hash','value,sigs');";
+    ss << "merge into " << SYS_TABLES << " as target \n";
+    ss << "using( \n";
+    ss << " SELECT '_sys_tables_' AS table_name, 'table_name' AS key_field, 'key_field,value_field' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_consensus_' AS table_name, 'name' AS key_field, 'type,node_id,enable_num' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_table_access_' AS table_name, 'table_name' AS key_field, 'address,enable_num' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_current_state_' AS table_name, 'key' AS key_field, 'value' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_number_2_hash_' AS table_name, 'number' AS key_field, 'value' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_tx_hash_2_block_' AS table_name, 'hash' AS key_field, 'value,index' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_hash_2_block_' AS table_name, 'hash' AS key_field, 'value' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_cns_' AS table_name, 'name' AS key_field, 'version,address,abi' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_config_' AS table_name, 'key' AS key_field, 'value,enable_num' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_block_2_nonces_' AS table_name, 'number' AS key_field, 'value' AS value_field FROM dual \n";
+    ss << " union all \n";
+    ss << " SELECT '_sys_hash_2_header_' AS table_name, 'hash' AS key_field, 'value,sigs' AS value_field FROM dual \n";
+    ss << ") as src \n";
+    ss << " on (target.table_name = src.table_name) \n";
+    ss << " WHEN NOT MATCHED THEN\n";
+    ss << " INSERT (table_name, key_field, value_field) \n";
+    ss << " VALUES (src.table_name, src.key_field, src.value_field);";
     GBaseStorage_LOG(INFO) << "insertSysTables:" << ss.str() ;
     string sql = ss.str();
     m_sqlBasicAcc->ExecuteSql(sql);
-    string commit="commit;";
-    m_sqlBasicAcc->ExecuteSql(commit);
 }

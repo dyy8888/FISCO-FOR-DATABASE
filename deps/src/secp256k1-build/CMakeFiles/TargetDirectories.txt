@@ -1,9 +1,0 @@
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/install/strip.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/install/local.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/install.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/list_install_components.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/rebuild_cache.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/edit_cache.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/secp256k1.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/ecmult_static_context.dir
-/home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/src/secp256k1-build/CMakeFiles/gen_context.dir

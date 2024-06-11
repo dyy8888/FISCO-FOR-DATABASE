@@ -113,6 +113,7 @@ private:
 
     dev::storage::Storage::Ptr initZdbStorage();
     dev::storage::Storage::Ptr initDMStorage();
+    dev::storage::Storage::Ptr initGBaseStorage();
     void recoverFromBinaryLog(std::shared_ptr<dev::storage::BinLogHandler> _binaryLogger,
         dev::storage::Storage::Ptr _storage);
 
@@ -128,6 +129,8 @@ private:
     dev::storage::TableFactoryFactory::Ptr m_tableFactoryFactory;
     std::shared_ptr<dev::storage::CachedStorage> m_cacheStorage = nullptr;
 };
+dev::storage::Storage::Ptr createGBaseStorage(std::shared_ptr<LedgerParamInterface> _param,
+    std::function<void(std::exception& e)> _fatalHandler);
 dev::storage::Storage::Ptr createDMStorage(std::shared_ptr<LedgerParamInterface> _param,
     std::function<void(std::exception& e)> _fatalHandler);
 int64_t getBlockNumberFromStorage(dev::storage::Storage::Ptr _storage);

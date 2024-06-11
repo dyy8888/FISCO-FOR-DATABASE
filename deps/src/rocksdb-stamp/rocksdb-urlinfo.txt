@@ -1,3 +1,0 @@
-repository='external project URL'
-module='https://codeload.github.com/facebook/rocksdb/tar.gz/v6.29.3;https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/FISCO-BCOS/FISCO-BCOS/deps/rocksdb-v6.29.3.tar.gz'
-tag='SHA256=724e4cba2db6668ff6a21ecabcce0782cd0c8e386796e7e9a14a8260e0600abd'

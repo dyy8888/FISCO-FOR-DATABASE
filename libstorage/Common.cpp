@@ -29,6 +29,10 @@ std::map<DMFieldType, std::string> dev::storage::DMFieldTypeName{
      {DMFieldType::ClobType, "CLOB"}
 };
 
+std::map<GBaseFieldType, std::string> dev::storage::GBaseFieldTypeName{
+     {GBaseFieldType::BlobType, "BLOB"}
+};
+
 std::map<SQLFieldType, std::string> dev::storage::SQLFieldTypeName{
     {SQLFieldType::MediumBlobType, "mediumblob"}, {SQLFieldType::LongBlobType, "longblob"},
     {SQLFieldType::MediumStringType, "mediumtext"}, {SQLFieldType::LongStringType, "longtext"}};

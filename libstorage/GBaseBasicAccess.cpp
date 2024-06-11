@@ -27,11 +27,6 @@
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
 #include <boost/dynamic_bitset.hpp>
-#include <openssl/bio.h>
-#include <openssl/evp.h>
-#include <openssl/buffer.h>
-#include <zlib.h>
-#include <cstring> 
 using namespace dev::storage;
 using namespace std;
 
@@ -61,6 +56,7 @@ int GBaseBasicAccess::Select(int64_t, const string& _table, const string&, Condi
     }
     TRY
     {
+        GBaseBasicAccess_LOG(INFO) << "select sql is : "  << sql;
         PreparedStatement_T _prepareStatement =
             Connection_prepareStatement(conn, "%s", sql.c_str());
         if (_condition)
@@ -72,22 +68,19 @@ int GBaseBasicAccess::Select(int64_t, const string& _table, const string&, Condi
                     _prepareStatement, ++index, it.second.right.second.c_str());             
             }
         }
+        
         ResultSet_T result = PreparedStatement_executeQuery(_prepareStatement);
         int32_t columnCnt = ResultSet_getColumnCount(result);
         string tableName;
         tableName = boost::algorithm::replace_all_copy(_table, "\\", "\\\\");
         tableName = boost::algorithm::replace_all_copy(_table, "`", "\\`");
-
-        auto outer_it = tableColumnType.find(tableName);
-        //如果缓存中不包含该表格的表项和类型信息，则去查询
-        if (outer_it == tableColumnType.end())
+        vector<string> fieldType;
+        for (int32_t index = 1; index <= columnCnt; ++index)
         {
-             for (int32_t index = 1; index <= columnCnt; ++index)
-            {
-                auto fieldName = ResultSet_getColumnName(result, index);
-                PreparedStatement_T _prepareStatement =
-                    Connection_prepareStatement(conn, "select data_type from all_tab_columns where table_name=? and owner='SYSDBA' and column_name=?;");
-                    PreparedStatement_setString(_prepareStatement, 1,tableName.c_str());
+            auto fieldName = ResultSet_getColumnName(result, index);
+            PreparedStatement_T _prepareStatement =
+                Connection_prepareStatement(conn, "SELECT coltypename FROM syscolumnsext WHERE tabid=(select tabid from systables where tabname=?) AND colname=?;");
+                PreparedStatement_setString(_prepareStatement, 1,tableName.c_str());
 	                PreparedStatement_setString(_prepareStatement, 2,fieldName);
 	            ResultSet_T resultson= PreparedStatement_executeQuery(_prepareStatement);
                 int32_t columnTypeCnt = ResultSet_getColumnCount(resultson);
@@ -98,24 +91,11 @@ int GBaseBasicAccess::Select(int64_t, const string& _table, const string&, Condi
                     {
                         auto columnName=ResultSet_getColumnName(resultson,indexson);
 				        selectResult = ResultSet_getString(resultson, indexson);
-                        // GBaseBasicAccess_LOG(INFO)<<"select查看哈希表tablename:"<<tableName<<" fieldname:"<<fieldName<<" selectResult:"<<selectResult;
-                        tableColumnType[tableName][fieldName]=selectResult;
+                        // GBaseBasicAccess_LOG(INFO) << "查询对应的字段是: "  << columnName<<" ,对应的类型是： "<<selectResult;
+                        fieldType.push_back(selectResult);
                     }
 	            }
-            }            
-
-        }
-        // GBaseBasicAccess_LOG(INFO)<<"select查看";
-        // auto tableIter = tableColumnType.find(tableName);
-        //         if (tableIter != tableColumnType.end()) {
-        //             GBaseBasicAccess_LOG(INFO)<<"表名："<<tableIter->first;
-        //             const auto& innerMap = tableIter->second;
-        //             for (const auto& columnPair : innerMap) {
-        //                 GBaseBasicAccess_LOG(INFO)<<"表项："<<columnPair.first<<",类型:"<<columnPair.second;
-        //             }
-        //         } else {
-        //              GBaseBasicAccess_LOG(INFO)<< "Table not found: " << tableName;
-        //         }
+        }            
         while (ResultSet_next(result))
         {
             map<string, string> value;
@@ -123,24 +103,22 @@ int GBaseBasicAccess::Select(int64_t, const string& _table, const string&, Condi
             {
                 string selectResult;
                 auto columnName=ResultSet_getColumnName(result,index);
-                selectResult=tableColumnType[tableName][columnName];
-                if (selectResult=="CLOB")
+                selectResult=fieldType[(index-1)%columnCnt];
+                if (selectResult=="BLOB")
                 {
                     int size;
                     auto bytes = ResultSet_getBlob(result,index, &size);
                     if (bytes)
                     {
-                        string res=base64_decode(string((char*)bytes,size),size);
-                        string ress=decompressString(res,res.size());
-                        // GBaseBasicAccess_LOG(INFO)<<"查看CLOB查询结果："<<ress;
-                        if (ress!="NULL"){
-                            value[columnName] = ress;
-                        }
+                        GBaseBasicAccess_LOG(INFO) << "blob查询到的columnName是: "<<columnName<<" ,内容是： "<<string((char*)bytes,size)<<",内容长度是: "<<size; 
+                        value[columnName] = string((char*)bytes,size);
+                        
                     }
                 }else{    
                     auto selectResult = ResultSet_getString(result,index);
                     if (selectResult)
                     {
+                        GBaseBasicAccess_LOG(INFO) << "查询到的columnName是: "<<columnName<<",内容是: "<<selectResult; 
                         value[columnName] = selectResult;
                     }
                   
@@ -150,7 +128,6 @@ int GBaseBasicAccess::Select(int64_t, const string& _table, const string&, Condi
             _values.push_back(move(value));
         }
     }
-    // Connection_execute(conn,"commit;");
     CATCH(SQLException)
     {
         m_connPool->ReturnConnection(conn);
@@ -168,8 +145,8 @@ string GBaseBasicAccess::BuildQuerySql(string _table, Condition::Ptr _condition)
 {   
     _table = boost::algorithm::replace_all_copy(_table, "\\", "\\\\");
     _table = boost::algorithm::replace_all_copy(_table, "`", "\\`");
-    string sql = "select * from \"SYSDBA\".\"";
-    sql.append(_table).append("\"");
+    string sql = "select * from ";
+    sql.append(_table).append(" ");
     if (_condition)
     {
         bool hasWhereClause = false;
@@ -186,6 +163,7 @@ string GBaseBasicAccess::BuildQuerySql(string _table, Condition::Ptr _condition)
             }
         }
     }
+     
     return sql;
 }
 
@@ -196,7 +174,7 @@ string GBaseBasicAccess::BuildConditionSql(const string& _strPrefix,
     if (_it->second.left.second == _it->second.right.second && _it->second.left.first &&
         _it->second.right.first)
     {
-        strConditionSql.append(" \"").append(_it->first).append("\"=").append("?");
+        strConditionSql.append(" ").append(_it->first).append(" =").append("?");
     }
     else
     {
@@ -204,22 +182,22 @@ string GBaseBasicAccess::BuildConditionSql(const string& _strPrefix,
         {
             if (_it->second.left.first)
             {
-                strConditionSql.append(" \"").append(_it->first).append("\">=").append("?");
+                strConditionSql.append(" ").append(_it->first).append(" >=").append("?");
             }
             else
             {
-                strConditionSql.append(" \"").append(_it->first).append("\">").append("?");
+                strConditionSql.append(" ").append(_it->first).append(" >").append("?");
             }
         }
         if (_it->second.right.second != _condition->unlimitedField())
         {
             if (_it->second.right.first)
             {
-                strConditionSql.append(" \"").append(_it->first).append("\"<=").append("?");
+                strConditionSql.append(" ").append(_it->first).append(" <=").append("?");
             }
             else
             {
-                strConditionSql.append(" \"").append(_it->first).append("\"<").append("?");
+                strConditionSql.append(" ").append(_it->first).append(" <").append("?");
             }
         }
     }
@@ -230,35 +208,35 @@ GBaseFieldType GBaseBasicAccess::getFieldType(std::string const& _tableName)
 {
     if (_tableName == SYS_HASH_2_BLOCK || _tableName == SYS_BLOCK_2_NONCES||_tableName == SYS_HASH_2_BLOCKHEADER )
     {
-        return GBaseFieldType::ClobType;
+        return GBaseFieldType::BlobType;
     }
     if (_tableName==SYS_CNS||_tableName==SYS_CONFIG||_tableName==SYS_CURRENT_STATE||_tableName==SYS_NUMBER_2_HASH||_tableName==SYS_TX_HASH_2_BLOCK)
     {
-        return GBaseFieldType::ClobType;
+        return GBaseFieldType::BlobType;
     }
     if (boost::starts_with(_tableName, string("c_")))
     {
         if (g_BCOSConfig.version() >= V2_5_0)
         {
-            return GBaseFieldType::ClobType;
+            return GBaseFieldType::BlobType;
         }
     }
     if (g_BCOSConfig.version() >= V2_6_0)
     {
-        return GBaseFieldType::ClobType;
+        return GBaseFieldType::BlobType;
     }
-    return GBaseFieldType::ClobType;
+    return GBaseFieldType::BlobType;
 }
 
 string GBaseBasicAccess::BuildCreateTableSql(
     const string& _tableName, const string& _keyField, const string& _valueField)
 {
     stringstream ss;
-    ss << "CREATE TABLE IF NOT EXISTS \"SYSDBA\".\"" << _tableName << "\"(\n";
-    ss << " \"_id_\" BIGINT IDENTITY(1, 1) NOT NULL,\n";
-    ss << " \"_num_\" BIGINT NOT NULL,\n";
-    ss << " \"_status_\" INT NOT NULL,\n";
-    ss << "\"" << _keyField << "\" varchar(255) default '',\n";
+    ss << "CREATE TABLE IF NOT EXISTS " << _tableName << "(\n";
+    ss << " _id_ BIGSERIAL NOT NULL,\n";
+    ss << " _num_ BIGINT DEFAULT 0,\n";
+    ss << " _status_ INT DEFAULT 0,\n";
+    ss << _keyField << " varchar(255) default '',\n";
     vector<string> vecSplit;
     boost::split(vecSplit, _valueField, boost::is_any_of(","));
     auto it = vecSplit.begin();
@@ -268,9 +246,9 @@ string GBaseBasicAccess::BuildCreateTableSql(
     {
         *it = boost::algorithm::replace_all_copy(*it, "\\", "\\\\");
         *it = boost::algorithm::replace_all_copy(*it, "`", "\\`");
-        ss << "\"" << *it << "\" " << fieldTypeName << ",\n";
+        ss << " " << *it << "  " << fieldTypeName << ",\n";
     }
-    ss << " NOT CLUSTER PRIMARY KEY(\"_id_\")) STORAGE(ON \"MAIN\", CLUSTERBTR) ;\n";
+    ss << " PRIMARY KEY(_id_));";
     return ss.str();
 }
 
@@ -288,9 +266,9 @@ string GBaseBasicAccess::BuildCreateTableSql(const Entry::Ptr& _entry)
 
     string sql = BuildCreateTableSql(tableName, keyField, valueField);
     stringstream indexNumSql;
-    indexNumSql<<"CREATE INDEX IF NOT EXISTS \"_num_\" ON \"SYSDBA\".\""<<tableName<<"\"(\"_num_\" ASC) STORAGE(ON \"MAIN\", CLUSTERBTR) ;";
+    indexNumSql<<"CREATE INDEX IF NOT EXISTS _num_ ON "<<tableName<<" (_num_);";
     stringstream indexKeySql;
-    indexKeySql<<"CREATE INDEX IF NOT EXISTS \""<<keyField<<"\" ON \"SYSDBA\".\""<<tableName<<"\"(\""<<keyField<<"\" ASC) STORAGE(ON \"MAIN\", CLUSTERBTR) ;";
+    indexKeySql<<"CREATE INDEX IF NOT EXISTS "<<keyField<<" ON "<<tableName<<" ("<<keyField<<");";
     GBaseBasicAccess_LOG(DEBUG) << "create table:" << tableName << " keyfield:" << keyField
                               << " value field:" << valueField << " sql:" << sql;
     string combined = sql + "###" + indexNumSql.str()+"###"+indexKeySql.str();
@@ -422,6 +400,7 @@ int GBaseBasicAccess::Commit(int64_t _num, const vector<TableData::Ptr>& _datas)
 
 int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _datas, string& _errorMsg)
 {
+    
     string strNum = to_string(_num);
     if (_datas.size() == 0)
     {
@@ -450,8 +429,8 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
                     }
                     splitted.push_back(combined);
                     for (const auto& s : splitted) {
+                        GBaseBasicAccess_LOG(INFO)<<"check commit sql is "<<s;
                         Connection_execute(conn, "%s", s.c_str());
-                        Connection_execute(conn,"commit;");
                     }
                    
                 }
@@ -467,7 +446,9 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
     }
     END_TRY;
     volatile int32_t rowCount = 0;
+   
     m_connPool->BeginTransaction(conn);
+
     TRY
     {
         for (auto data : _datas)
@@ -483,9 +464,6 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
 
             tableName = boost::algorithm::replace_all_copy(tableName, "\\", "\\\\");
             tableName = boost::algorithm::replace_all_copy(tableName, "`", "\\`");
-            string _sql="set identity_insert \"SYSDBA\".\"";
-            _sql.append(tableName).append("\" on;");
-            Connection_execute(conn,_sql.c_str());
             for (auto item : field2Values)
             {
                 const auto& name = item.first;
@@ -493,92 +471,52 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
                 
                 vector<GBasePlaceholderItem> sqlPlaceholders =
                     this->BuildCommitSql(tableName, name, values);
-                // for (size_t i = 0; i < sqlPlaceholders.size(); ++i) {
-                //     GBaseBasicAccess_LOG(INFO)<<"查看commit语句:"<<sqlPlaceholders[i].sql;
-                // }
+                
                 vector<string> fieldNames;
                 boost::split(fieldNames, name, boost::is_any_of(","));
-                auto outer_it = tableColumnType.find(tableName);
-                // GBaseBasicAccess_LOG(INFO)<<"当前要查询的表格为:"<<tableName;
-                //如果缓存中不包含该表格的表项和类型信息，则去查询
-                if (outer_it == tableColumnType.end())
+              
+                for (const std::string& item : fieldNames) 
                 {
-                    // GBaseBasicAccess_LOG(INFO)<<"不存在";
-                    for (const std::string& item : fieldNames) 
+                    PreparedStatement_T _prepareStatement_select = Connection_prepareStatement(conn, "SELECT coltypename FROM syscolumnsext WHERE tabid=(select tabid from systables where tabname=?) AND colname=?;");
+                    auto field = boost::algorithm::replace_all_copy(item, "\"", "");
+                    PreparedStatement_setString(_prepareStatement_select, 1,tableName.c_str());
+                    PreparedStatement_setString(_prepareStatement_select, 2,field.c_str());
+                    ResultSet_T result= PreparedStatement_executeQuery(_prepareStatement_select);
+                   
+                    int32_t columnCnt = ResultSet_getColumnCount(result);
+                    while (ResultSet_next(result))
                     {
-                        PreparedStatement_T _prepareStatement_select =
-                        Connection_prepareStatement(conn, "select data_type from all_tab_columns where table_name=? and owner='SYSDBA' and column_name=?;");
-                        auto field = boost::algorithm::replace_all_copy(item, "\"", "");
-                        PreparedStatement_setString(_prepareStatement_select, 1,tableName.c_str());
-                        PreparedStatement_setString(_prepareStatement_select, 2,field.c_str());
-                        ResultSet_T result= PreparedStatement_executeQuery(_prepareStatement_select);
-                        int32_t columnCnt = ResultSet_getColumnCount(result);
-                        while (ResultSet_next(result))
+                        for (int32_t index = 1; index <= columnCnt; ++index)
                         {
-                            for (int32_t index = 1; index <= columnCnt; ++index)
-                            {
-                                auto fieldName = ResultSet_getColumnName(result, index);
-                                auto selectResult = ResultSet_getStringByName(result, fieldName);
-                                // GBaseBasicAccess_LOG(INFO)<<"查看哈希表tablename:"<<tableName<<" fieldname:"<<field<<" selectResult:"<<selectResult;
-                                tableColumnType[tableName][field]=selectResult;
-                                field2Type.push_back(selectResult);
-                            }      
-                        }
-                    }
-                }else{
-                    for (const std::string& item : fieldNames) 
-                    {
-                        auto field = boost::algorithm::replace_all_copy(item, "\"", "");
-                        // GBaseBasicAccess_LOG(INFO)<<"存在";
-                        string checkRes=tableColumnType[tableName][field];
-                        // GBaseBasicAccess_LOG(INFO)<<"checkRes:"<<checkRes<<" field"<<field;
-                        field2Type.push_back(checkRes);
+                            auto fieldName = ResultSet_getColumnName(result, index);
+                            auto selectResult = ResultSet_getStringByName(result, fieldName);
+                            GBaseBasicAccess_LOG(INFO)<<"查询的字段名称是： "<<fieldName<<"，查询的字段类型是： "<<selectResult;
+                            field2Type.push_back(selectResult);
+                        }      
                     }
                 }
-                // auto tableIter = tableColumnType.find(tableName);
-                // if (tableIter != tableColumnType.end()) {
-                //     // GBaseBasicAccess_LOG(INFO)<<"表名："<<tableIter->first;
-                //     const auto& innerMap = tableIter->second;
-                //     for (const auto& columnPair : innerMap) {
-                //         // GBaseBasicAccess_LOG(INFO)<<"表项："<<columnPair.first<<",类型:"<<columnPair.second;
-                //     // }
-                // } else {
-                //      GBaseBasicAccess_LOG(INFO)<< "Table not found: " << tableName;
-                // }
-
-                // for (size_t i = 0; i < field2Type.size(); ++i) {
-                //     GBaseBasicAccess_LOG(INFO)<<"查看field2Type中的内容:第"<<i<<"项的内容是："<<field2Type[i];
-                // }
                 uint32_t size1 = field2Type.size();
-                vector<string> dealedStr;
-                for (size_t i = 0; i < values.size(); ++i) {
-                    if (field2Type[i%size1]=="CLOB")
-                    {
-                        // string base64=values[i];、
-                        //  GBaseBasicAccess_LOG(INFO)<<"插入的是CLOB："<<base64_encode(compressString(values[i]));
-                        dealedStr.push_back(base64_encode(compressString(values[i])));
-
-                    }else{
-                        dealedStr.push_back(values[i]);
-                    }
-                }
-                // for (size_t i = 0; i < dealedStr.size(); ++i) {
-                //     GBaseBasicAccess_LOG(INFO)<<"查看dealedStr中的内容:第"<<i<<"项的内容是："<<dealedStr[i];
-                // }
                 string searchSql;
-                auto itValue = dealedStr.begin();
-                auto itValueSearch = dealedStr.begin();
+                auto itValue = values.begin();
+                // auto itValueSearch = dealedStr.begin();
                 for (auto& placeholder : sqlPlaceholders)
                 {
+                    GBaseBasicAccess_LOG(INFO)<<"提交的sql语句是： "<<placeholder.sql;
                     PreparedStatement_T preStatement =
                         Connection_prepareStatement(conn, "%s", placeholder.sql.c_str());
+                       
                     uint32_t index = 0;
                     uint32_t size = field2Type.size();
                     if (placeholder.sql.find("insert") != std::string::npos)
                     {
                          for (; itValue != values.end(); ++itValue)
                         {
-                                PreparedStatement_setString(preStatement, ++index, itValue->c_str());
+                                if (field2Type[index%size]=="BLOB"){
+                                    PreparedStatement_setBlob(preStatement, ++index, itValue->c_str(),itValue->size());
+                                }else{
+                                    PreparedStatement_setString(preStatement, ++index, itValue->c_str());
+                                }
+                                
                             if (index == placeholder.placeholderCnt)
                             {
                                 PreparedStatement_execute(preStatement);
@@ -597,6 +535,7 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
                          
                             if (fieldNames[index%size]=="\"_id_\"")
                             {
+                                GBaseBasicAccess_LOG(INFO)<<"当前字段是 _id_";
                                 PreparedStatement_setString(preStatement,size,itValue->c_str());
                                 helpFlag=true;
                                 index++;
@@ -604,9 +543,18 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
                             }
                             if (helpFlag)
                                 {
-                                    PreparedStatement_setString(preStatement, index++, itValue->c_str());
-                                }else{                           
-                                    PreparedStatement_setString(preStatement, ++index, itValue->c_str());                                    
+                                    if (field2Type[index%size]=="BLOB"){
+                                        PreparedStatement_setBlob(preStatement, index++, itValue->c_str(),itValue->size());
+                                    }else{
+                                        PreparedStatement_setBlob(preStatement, index++, itValue->c_str(),itValue->size());
+                                    }
+                                    
+                                }else{ 
+                                    if (field2Type[index%size]=="BLOB"){
+                                        PreparedStatement_setBlob(preStatement, ++index, itValue->c_str(),itValue->size());
+                                    }else{
+                                        PreparedStatement_setBlob(preStatement, ++index, itValue->c_str(),itValue->size());
+                                    }                                                        
                                 }
                                 if (index == placeholder.placeholderCnt)
                             {
@@ -622,6 +570,7 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
                 }
                 
             }
+            GBaseBasicAccess_LOG(INFO)<<"end end end end";
             
         }
         
@@ -630,7 +579,7 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
     {
         _errorMsg = Exception_frame.message;
         GBaseBasicAccess_LOG(ERROR) << "insert data exception:" << _errorMsg;
-        GBaseBasicAccess_LOG(DEBUG) << "active connections:" << m_connPool->GetActiveConnections()
+        GBaseBasicAccess_LOG(INFO) << "active connections:" << m_connPool->GetActiveConnections()
                                   << " max connetions:" << m_connPool->GetMaxConnections()
                                   << " now connections:" << m_connPool->GetTotalConnections();
         m_connPool->RollBack(conn);
@@ -643,7 +592,6 @@ int GBaseBasicAccess::CommitDo(int64_t _num, const vector<TableData::Ptr>& _data
                              << m_connPool->GetActiveConnections()
                              << " max connections:" << m_connPool->GetMaxConnections();
     m_connPool->Commit(conn);
-    Connection_execute(conn,"commit;");
     m_connPool->ReturnConnection(conn);
     return rowCount;
 }
@@ -684,8 +632,8 @@ vector<GBasePlaceholderItem> GBaseBasicAccess::BuildCommitSql(
         
         {              
             string sqlHeader;
-            searchSql="select count(*) from \"SYSDBA\".\"";
-            searchSql.append(_table).append("\" where \"_id_\"= ?;");
+            searchSql="select count(*) from ";
+            searchSql.append(_table).append(" where _id_= ?;");
             PreparedStatement_T preSearchStatement=Connection_prepareStatement(conn, "%s", searchSql.c_str());
             PreparedStatement_setString(preSearchStatement, 1,_fieldValues[index*columnSize+position].c_str());
             ResultSet_T searchResult= PreparedStatement_executeQuery(preSearchStatement);
@@ -706,16 +654,17 @@ vector<GBasePlaceholderItem> GBaseBasicAccess::BuildCommitSql(
 	        }
             if (!isUpdate)
             {
-                sqlHeader = "insert into SYSDBA.\"";
-                sqlHeader.append(_table).append("\" (");
+                sqlHeader = "insert into ";
+                sqlHeader.append(_table).append(" (");
                 for (uint32_t index2= 0; index2 < fieldNames.size(); index2++)
                 {
                     if (index2!=(fieldNames.size()-1))
                     {
-                        
+                        fieldNames[index2] = boost::algorithm::replace_all_copy(fieldNames[index2], "\"", "");
                         sqlHeader.append(fieldNames[index2]).append(",");
                     }else
                     {
+                        fieldNames[index2] = boost::algorithm::replace_all_copy(fieldNames[index2], "\"", "");
                         sqlHeader.append(fieldNames[index2]).append(")");
                     }
                 }
@@ -733,8 +682,8 @@ vector<GBasePlaceholderItem> GBaseBasicAccess::BuildCommitSql(
                 
             }else
             {
-                sqlHeader = "update  SYSDBA.\"";
-                sqlHeader.append(_table).append("\" set ");
+                sqlHeader = "update  ";
+                sqlHeader.append(_table).append(" set ");
                  for (uint32_t index2= 0; index2 < fieldNames.size(); index2++)
                 {
                     if (fieldNames[index2]=="\"_id_\"")
@@ -744,6 +693,7 @@ vector<GBasePlaceholderItem> GBaseBasicAccess::BuildCommitSql(
                     }else
                     {
                         placeholderCnt++;
+                        fieldNames[index2] = boost::algorithm::replace_all_copy(fieldNames[index2], "\"", "");
                         sqlHeader.append(fieldNames[index2]).append("=? ,");
                     }
                    
@@ -752,7 +702,7 @@ vector<GBasePlaceholderItem> GBaseBasicAccess::BuildCommitSql(
                 {
                     sqlHeader.pop_back(); 
                 }
-                sqlHeader.append(" where \"_id_\"=?; ");
+                sqlHeader.append(" where _id_=?; ");
             }
             if (placeholderCnt > 0)
             {
@@ -804,99 +754,4 @@ void GBaseBasicAccess::ExecuteSql(const string& _sql)
                              << " max connection :" << m_connPool->GetMaxConnections();
 
     m_connPool->ReturnConnection(conn);
-}
-std::string base64_decode(const std::string& encoded,int size) {
-    BIO *bio, *b64;
-    char outbuf[size];
-    std::string decoded;
-
-    b64 = BIO_new(BIO_f_base64());
-    BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
-    bio = BIO_new_mem_buf(encoded.c_str(), static_cast<int>(encoded.length()));
-    bio = BIO_push(b64, bio);
-    int bytesRead = BIO_read(bio, outbuf, encoded.length());
-
-    decoded.assign(outbuf, bytesRead);
-
-    BIO_free_all(bio);
-
-    return decoded;
-}
-std::string base64_encode(const std::string& input) {
-    BIO *bio, *b64;
-    BUF_MEM *bufferPtr;
-    std::string encoded;
-
-    b64 = BIO_new(BIO_f_base64());
-    BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
-    bio = BIO_new(BIO_s_mem());
-    BIO_push(b64, bio);
-    BIO_write(b64, input.c_str(), static_cast<int>(input.length()));
-    BIO_flush(b64);
-    BIO_get_mem_ptr(b64, &bufferPtr);
-
-    encoded.assign(bufferPtr->data, bufferPtr->length);
-
-    BIO_free_all(b64);
-
-    return encoded;
-}
-std::string compressString(const std::string& input) {
-    std::string compressed;
-
-    z_stream zs;
-    std::memset(&zs, 0, sizeof(zs));
-
-    if (deflateInit(&zs, Z_BEST_COMPRESSION) != Z_OK) {
-        return "";
-    }
-
-    zs.next_in = (Bytef*)input.data();
-    zs.avail_in = input.size();
-
-    int ret;
-    char outbuffer[input.size()];
-    do {
-        zs.next_out = reinterpret_cast<Bytef*>(outbuffer);
-        zs.avail_out = sizeof(outbuffer);
-
-        ret = deflate(&zs, Z_FINISH);
-        if (compressed.size() < zs.total_out) {
-            compressed.append(outbuffer, zs.total_out - compressed.size());
-        }
-    } while (ret == Z_OK);
-
-    deflateEnd(&zs);
-    return compressed;
-}
-
-
-std::string decompressString(const std::string& input, size_t compressedSize) {
-    std::string decompressed;
-
-    z_stream zs;
-    std::memset(&zs, 0, sizeof(zs));
-
-    if (inflateInit(&zs) != Z_OK) {
-        return "";
-    }
-
-    zs.next_in = (Bytef*)input.data();
-    zs.avail_in = compressedSize;
-
-    int ret;
-    char outbuffer[compressedSize*20];
-    do {
-        zs.next_out = reinterpret_cast<Bytef*>(outbuffer);
-        zs.avail_out = sizeof(outbuffer);
-
-        ret = inflate(&zs, Z_FINISH);
-        if (decompressed.size() < zs.total_out) {
-            decompressed.append(outbuffer, zs.total_out - decompressed.size());
-        }
-    } while (ret == Z_OK);
-
-    inflateEnd(&zs);
-
-    return decompressed;
 }

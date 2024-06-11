@@ -1,8 +1,0 @@
-[100%] Built target evmone
-Install the project...
--- Install configuration: "Release"
--- Up-to-date: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include
--- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmone
--- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/include/evmone/evmone.h
--- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libevmone.a
--- Installing: /home/dyy/FISCO-TIDY/FISCO-BCOS-2.9.1/deps/lib/libkeccak.a

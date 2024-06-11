@@ -30,10 +30,7 @@
 // const static uint32_t maxPlaceHolderCnt = 60000;
 const static uint32_t maxGBasePlaceHolderCnt = 90;
 #define GBaseBasicAccess_LOG(LEVEL) LOG(LEVEL) << "[GBaseBasicAccess] "
-std::string base64_decode(const std::string& encoded,int size);
-std::string base64_encode(const std::string& encoded);
-std::string decompressString(const std::string& input, size_t compressedSize);
-std::string compressString(const std::string& input);
+
 namespace dev
 {
 namespace storage
@@ -84,7 +81,7 @@ private:
     bool inline isBlobType(std::string const& _tableName)
     {
         auto fieldType = getFieldType(_tableName);
-        if (fieldType == GBaseFieldType::ClobType)
+        if (fieldType == GBaseFieldType::BlobType)
         {
             return true;
         }

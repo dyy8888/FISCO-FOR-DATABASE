@@ -43,6 +43,8 @@ bool GBaseConnectionPool::InitConnectionPool(const storage::GBaseConnectionPoolC
            << "/"<< _dbConfig.dbName <<"?user=" << _dbConfig.dbUsername
            << "&password=" << _dbConfig.dbPasswd;
         //将ss转换为c风格的然后调用URL_new
+         GBaseConnectionPool_LOG(INFO)
+            << "init connection dbname is "<<_dbConfig.dbName;
         m_url = URL_new(ss.str().c_str());
         if (m_url == NULL)
         {
@@ -60,7 +62,7 @@ bool GBaseConnectionPool::InitConnectionPool(const storage::GBaseConnectionPoolC
             ConnectionPool_setInitialConnections(m_connectionPool, _dbConfig.initConnections);
             ConnectionPool_setMaxConnections(m_connectionPool, _dbConfig.maxConnections);
             ConnectionPool_setConnectionTimeout(m_connectionPool, 28800);
-            ConnectionPool_setReaper(m_connectionPool, 10);
+            ConnectionPool_setReaper(m_connectionPool, 5);
             ConnectionPool_start(m_connectionPool);
         }
         CATCH(SQLException)
